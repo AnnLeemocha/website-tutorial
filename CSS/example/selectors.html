@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width" />
+        <title>Selector</title>
+
+        <link rel="stylesheet" href="selectors.css">
+    </head>
+    <body>
+        <h1>簡單的選擇器</h1>
+        <hr>
+
+        <h3>通用選擇器（Universal selector）</h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, commodi adipisci nulla animi, tenetur accusamus aut possimus, aperiam est quod praesentium laborum exercitationem qui officia reiciendis quibusdam quam! Ut, voluptatum.
+        <hr>
+
+        <h3>類型選取器（Type selector）</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quo officiis fuga consectetur sunt et ratione qui. Porro quas cumque consectetur nulla soluta reprehenderit! Eius inventore iusto libero architecto blanditiis?</p>
+        <hr>
+
+        <h3>類別選取器（Class selector）</h3>
+        <div class="my-class">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eligendi molestiae quas ab at earum quam quibusdam, velit ea quae! Voluptate, excepturi incidunt? Praesentium laborum possimus odio, optio alias veritatis.</div>
+        <hr>
+
+        <h3>類別選取器（Class selector）</h3>
+        <div id="my-id">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit laudantium aliquid corporis dicta neque quos iste distinctio, dignissimos quisquam natus suscipit nisi iure similique reiciendis consequuntur quasi quas minima accusamus!</div>
+        <hr>
+
+        <h3>屬性選取器（Attribute selector）</h3>
+        <div data-type="primary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores atque magnam quidem accusamus! Nemo amet pariatur quo aliquam similique libero rerum mollitia velit aperiam aliquid! Eum voluptatum natus modi neque.</div>
+        <hr>
+
+        <h1>擬類別和擬元素</h1>
+        <hr>
+
+        <h3>擬類別（Pseudo classes）</h3>
+        <a>Click me!</a>
+        <hr>
+
+        <h3>擬元素（Pseudo elements）</h3>
+        <div class="my-element">Lorem ipsum dolor sit amet.</div>
+        <hr>
+
+        <h1>複雜選取器</h1>
+        <hr>
+
+        <h3>後代選擇器（Descendant combinator）</h3>
+        <div class="container">
+            <section>
+                <p>This is a <strong>bold</strong> text inside a paragraph.</p>
+            </section>
+        </div>
+        <hr>
+
+        <h3>子代選擇器（Child combinator）</h3>
+        <div class="parent">
+            <p>Paragraph 1</p>
+            <div>
+                <p>Paragraph 2</p>
+            </div>
+        </div>
+        <hr>
+
+        <h3>一般兄弟選擇器（General sibling combinator）</h3>
+        <div>
+            <h2>Title</h2>
+            <p>First paragraph</p>
+            <p>Second paragraph</p>
+            <hr>
+        </div>
+
+        <h3>相鄰兄弟選擇器（Adjacent sibling combinator）</h3>
+        <h3>Subtitle</h3>
+        <p>Only this paragraph will be styled</p>
+        <p>This one will not be affected</p>
+        <hr>
+
+    </body>
+</html>
