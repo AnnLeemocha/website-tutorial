@@ -1,10 +1,18 @@
-# JavaScript 教學 - 
+# JavaScript 教學 - 入門筆記
 
+
+參考：
+* [彭彭的教學課程 | JavaScript 程式簡介](https://docs.google.com/presentation/d/1qMZrWHPZbJsxqJuISYqoXj3FqAk4nfngpV88YirReqk/edit?usp=sharing)
+* [彭彭的教學課程 | 變數與運算子](https://docs.google.com/presentation/d/1x_Qa87sDiIMpwu8Sx8VSGSrO-hQKb5heEfLnn8BaY2Y/edit?usp=sharing)
+
+範例：
+* [use_javascript.html](../example/use_javascript.html)
+* [use_javascript_body.js](../example/use_javascript_body.js)
+* [use_javascript_head.js](../example/use_javascript_head.js)
+* [variable.html](../example/variable.html)
+* [variable.js](../example/variable.js)
 
 ---
-
-
-# JavaScript 入門教學筆記
 
 ## 什麼是 JavaScript？
 
@@ -25,17 +33,59 @@ JavaScript 是一種用來為網頁添加互動功能的程式語言。它是前
 
 ## 如何在 HTML 中使用 JavaScript？
 
+### 方法一：行內腳本 (Inline Script)
 ```html
-<!-- 方法一：內嵌寫法 -->
+<button onclick="alert('你點到了按鈕')">點我</button>
+```
+
+直接寫在 HTML 標籤的屬性中的 JavaScript 程式碼
+
+### 方法二：內部腳本 (Internal Script)
+```html
 <script>
   alert("Hello JavaScript!");
 </script>
+```
+> type 屬性可省略，預設已為 `text/javascript`
 
-<!-- 方法二：外部檔案引入 -->
+* 放置在 `<head>` 中：
+    * HTML 尚未載入完成時就執行 JS
+    * 無法安全操作 DOM 元素
+    * 容易報錯（元素未存在）
+
+* 放置在 `<body>` 中（上）：
+    * 該行被解析時立即執行 JS
+    * 只能操作該行之前出現的 DOM
+    * 後面元素還沒被解析
+
+* 放置在 `<body>` 中（底）：
+    * HTML 幾乎解析完畢後才執行
+    * 可以安全操作整個 DOM
+    * 推薦放法，等同 `defer`
+
+> 注意！ `defer` 是屬於外部 JavaScript (src) 腳本的屬性。
+
+### 方法三：外部腳本 (External Script)
+```html
+<!-- 放在 `<head>` 中 -->
+<script src="script.js" defer></script>
+
+<!-- 放在 `<body>` 底 (已等同 defer) -->
 <script src="script.js"></script>
 ```
+> type 屬性可省略，預設已為 `text/javascript`
 
-建議將 `<script>` 放在 `</body>` 前，或使用 `defer`。
+* 預設情況（沒加 defer）：
+    * HTML 解析器會在讀到 `<script>` 時暫停解析，
+    * 等 main.js 下載 + 執行完，再繼續解析 HTML。
+    * 這會導致頁面載入變慢、畫面出不來（阻塞渲染）。
+    * **建議在 `<script>` 放在 `<body>` 底時使用。**
+
+* 加上 defer 的寫法：
+    * JavaScript 會背景下載。
+    * 等 HTML 完全解析完後，再依序執行（不阻塞畫面渲染）。
+    * 頁面載入更順暢。
+    * **建議在 `<script>` 放在 `<head>` 中時使用。**
 
 ---
 
@@ -52,6 +102,7 @@ JavaScript 是一種用來為網頁添加互動功能的程式語言。它是前
 | 字串 (String)     | `"Hello"`、`'Hi'`、\``Hey`\`     |
 | 數字 (Number)     | `10`、`3.14`                  |
 | 布林 (Boolean)    | `true`、`false`               |
+| 函式 (Function)   | `() => {}`、`function () {}`               |
 | 陣列 (Array)      | `[1, 2, 3]`、`["a", "b"]`     |
 | 物件 (Object)     | `{ name: "Alice", age: 20 }` |
 | 空值 (null)       | `null`                       |
@@ -63,6 +114,11 @@ JavaScript 是一種用來為網頁添加互動功能的程式語言。它是前
 * Array
   * typeof [] = object：  
     陣列（Array）其實是特殊型態的物件（Object）。
+    > JavaScript 的語言設計歷史造成的結果。
+    > 需用 Array.isArray() 才能區分
+* null
+  * typeof null = object：  
+    null 也是特殊型態的物件（Object）。
     > JavaScript 的語言設計歷史造成的結果。
 
 ## 變數
@@ -88,7 +144,11 @@ var city;
 var city = "Taipei";     // 舊式語法（不推薦）
 ```
 
-## 作用域 (`{}`, block statement)
+## 變數的作用域 (Scope)
+* 使用 var 宣告變數：只有函式區塊能定義 scope 範圍。
+* 使用 let 宣告變數：任何程式區塊都能定義 scope 範圍。
+* 宣告在內部範圍的變數不能被外部程式使用。
+* `{}`, block statement
 ```js
 let x = 10;
 {
@@ -103,18 +163,33 @@ console.log(y);   // 錯誤：y is not defined
 
 ---
 
-## 運算子
-https://web.dev/learn/javascript/comparison
+## 常見運算子
+更多請參考：
+* [web.dev | Comparison operators](https://web.dev/learn/javascript/comparison)
+* [MDN | Expressions and operators]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators)
 ```js
-// 指定運算：=, +=, -=
+// 指定運算：=, +=, -=, *=, /=, %=
 let a = 0;
-a += 2;
-console.log(a);
+console.log("a = 0 :", a);
+a += 4;
+console.log("a += 4 :", a);
+a -= 2;
+console.log("a -= 2 :", a);
+a *= 3;
+console.log("a *= 3 :", a);
+a /= 2;
+console.log("a /= 2 :", a);
+a %= 2;
+console.log("a %= 2 :", a);
 
-// 單元運算：++, --, !
+// 單元運算：++, --
 let b = 0;
-b++;
-console.log(b);
+console.log("++b =", ++b);
+console.log("b =", b);
+console.log("b++ =", b++);
+console.log("b =", b);
+// ++b	為前置遞增，會先加 1 再回傳值，回傳結果為加完的結果
+// b++	後置遞增，會先回傳值，再加 1 ，回傳結果為原本的值
 
 // 算術運算：+, -, *, /, %
 console.log("10 + 5 =", 10 + 5); // 數字相加
@@ -135,414 +210,21 @@ console.log("a <= b", a <= b)      // 小於等於
 console.log("a && b", a && b)      // 且
 console.log("a || b", a || b)      // 或
 console.log("!a", !a)          // 非
+```
 
+
+### 資料型態的重要性
+```js
 // 資料型態的重要性 (弱型別語言)
 console.log(`"Hello" + "World" = ${"Hello" + "World"}`) // 字串串接
-console.log(`"課程網站 - " + 1 = ${"課程網站 - " + 1} (${typeof "課程網站 - " + 1}`)`;      // 把 1 轉換成字串後，字串串接
+console.log(`"課程網站 - " + 1 = ${"課程網站 - " + 1} (${typeof "課程網站 - " + 1}`);      // 把 1 轉換成字串後，字串串接
 ```
+布林值與其他資料型態的強制轉換
+| 資料型態 | 轉換為 true | 轉換為 false |
+| ------- | ----------- | ----------- |
+|  字串    | 非空字串 ("Hello World") | 空字串 ("") |
+| 數字     | 非零數字 (5, -10.5)  | 零 (0) |
+| 其他物件 | 有東西 | 沒有東西 (null, undefined) |
 
----
-
-## 條件判斷
-
-```js
-if ( true ) console.log("True");
-
-if (score >= 60) {
-  console.log("及格");
-} else {
-  console.log("不及格");
-}
-
-```
-
-三元運算子：
-
-```js
-let result = score >= 60 ? "及格" : "不及格";
-```
-
-switch-case：
-```js
-let score = "B";
-
-switch (score) {
-  case "A":
-    // 如果表達式 === "A"，就執行這裡
-    console.log("優秀");
-    break;
-    // `break`：跳出 `switch` 結構，否則會繼續執行下一個 `case`（稱為 "fall-through" 現象）
-  case "B":
-    console.log("良好");
-    break;
-  case "C":
-    console.log("普通");
-    break;
-  case "D":
-  case "E":
-  case "F":
-    console.log("需加強");
-    break;
-  default:
-    // `default`：所有 case 都不符合時執行，可選寫但建議保留
-    console.log("無效等級");
-}
-
-// 比較「單一變數」對應多個可能值時，不建線寫太多 if-else
-```
-
----
-
-## 迴圈語法
-for
-```js
-for (let i = 0; i < 5; i++) {
-  console.log(i);
-}
-```
-
-forin
-```js
-const myObject = { "myProperty" : true, "mySecondProperty" : false };
-for( const myKey in myObject ) {
-    console.log( `${ myKey } : ${ myObject[myKey] }` );
-}
-```
-
-forof
-```js
-let fruits = ["apple", "banana", "orange"];
-for (let fruit of fruits) {
-  console.log(fruit);
-}
-```
-
-while
-```js
-// 請避免無窮迴圈
-let iterationCount = 0;
-console.log( "Pre-loop." );
-while( iterationCount < 3 ) {
-  iterationCount++;
-  console.log( "Loop iteration." );
-}
-```
-
-do...while
-```js
-let randomNum;
-do {
-  randomNum = ( () => Math.floor( Math.random() * 10 ) )();
-  console.log( `Is the number ${ randomNum }?` );
-} while ( randomNum !== 3 );
-```
-
-### 非同步JavaScript
-
----
-
-## 函式定義與呼叫
-關鍵詞 (key word)
-* `return`
-* `new`
-* `this`
-```js
-function sayHello(name) {
-    console.log("Hey");
-    return "Hello, " + name;
-}
-
-let message = sayHello("Tom");
-console.log("message = ",message);
-```
-
-箭頭函式（ES6）：
-
-```js
-const add = (a, b) => a + b;
-
-const minus = (a, b) => {
-    return a - b
-};
-```
-
----
-
-## 物件與陣列
-
-### 物件 (Object)
-
-```js
-const user = {
-  name: "Amy",
-  age: 22,
-  greet: function () {
-    console.log("Hi, I'm " + this.name);
-  }
-};
-
-user.greet(); // 呼叫方法
-```
-
-### 陣列操作
-
-```js
-let nums = [1, 2, 3];
-nums.push(4);         // 新增元素
-console.log(nums[0]); // 讀取第一個元素
-console.log(nums.length); // 取得陣列長度 
-```
-
----
-
-## 常用內建函式與方法
-
-| 類型   | 方法/屬性                             | 範例                             |
-| ---- | --------------------------------- | ------------------------------ |
-| 字串   | `.length`, `.toUpperCase()`       | `"hi".toUpperCase()`           |
-| 陣列   | `.push()`, `.pop()`, `.forEach()` | `arr.forEach()`                |
-| 數字   | `Math.random()`, `Math.floor()`   | `Math.floor(3.8)`              |
-| 日期時間 | `Date()`                          | `new Date().getFullYear()`     |
-| 轉型   | `Number()`, `String()`            | `Number("123")`, `String(123)` |
-
----
-
-## ES6 教學總覽
-ES6（ECMAScript 2015）是 JavaScript 的一個重大版本，加入了許多提升語言表達能力與開發效率的新特性。
-
-以下為常見的 ES6 語法介紹。
-
-### 1. `let` 與 `const`
-
-#### `let`：區塊作用域變數
-
-```js
-let x = 10;
-if (true) {
-    let x = 20;
-    console.log(x); // 20
-}
-console.log(x);   // 10
-```
-
-#### `const`：宣告常數（不可重新賦值）
-
-```js
-const PI = 3.14;
-// PI = 3.14159; // 錯誤：不能重新賦值
-```
-
----
-
-### 2. 箭頭函式（Arrow Functions）
-
-簡化函式撰寫，且**不綁定 this**
-
-```js
-// 傳統函式
-function add(a, b) {
-  return a + b;
-}
-
-// 箭頭函式
-const add = (a, b) => a + b;
-```
-
----
-
-### 3. 模板字串（Template Literals）
-
-使用 **反引號 \`** 包裹，可插入變數與換行：
-
-```js
-const name = "Alice";
-console.log(`Hello, ${name}!
-歡迎來到 ES6 教學。`);
-```
-
----
-
-### 4. 解構賦值（Destructuring）
-
-#### 解構陣列：
-
-```js
-const arr = [1, 2, 3];
-const [a, b] = arr;
-console.log(a); // 1
-```
-
-#### 解構物件：
-
-```js
-const user = { name: "Tom", age: 25 };
-const { name, age } = user;
-console.log(name); // Tom
-```
-
----
-
-### 5. 預設參數（Default Parameters）
-
-```js
-function greet(name = "訪客") {
-  console.log(`你好，${name}`);
-}
-greet();         // 你好，訪客
-greet("Amy");    // 你好，Amy
-```
-
----
-
-### 6. 展開運算子（Spread `...`）
-
-#### 展開陣列：
-
-```js
-const nums = [1, 2, 3];
-const all = [...nums, 4, 5];
-console.log(all); // [1, 2, 3, 4, 5]
-```
-
-#### 展開物件：
-
-```js
-const user = { name: "Tom" };
-const newUser = { ...user, age: 30 };
-console.log(newUser); // { name: "Tom", age: 30 }
-console.log({ ...user, age: 20 }); // { name: "Tom", age: 20 }
-```
-
----
-
-### 7. 剩餘參數（Rest Parameters）
-
-```js
-function sum(...nums) {
-    console.log(nums);
-    return nums.reduce((a, b) => a + b, 0);
-}
-console.log(sum(1, 2, 3)); // 6
-```
-
----
-
-### 8. 模組（Modules）
-
-#### 導出（export）
-
-```js
-// file: math.js
-export const PI = 3.14;
-export function add(a, b) {
-    return a + b;
-}
-```
-
-#### 匯入（import）
-
-```js
-import { PI, add } from './math.js';
-console.log(add(2, PI));
-```
-
----
-
-### 9. 類別（Class）
-
-```js
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-  greet() {
-    console.log(`Hi, I'm ${this.name}`);
-  }
-}
-
-const p = new Person("Jane");
-p.greet(); // Hi, I'm Jane
-```
-
----
-
-### 10. Promise（非同步處理）
-
-```js
-function fetchData() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve("資料載入完成"), 1000);
-  });
-}
-
-fetchData().then(data => console.log(data));
-```
-
----
-
-### ES6 總整理表
-
-| 特性              | 說明                   |
-| --------------- | -------------------- |
-| `let` / `const` | 區塊變數與常數              |
-| 箭頭函式            | 簡化函式撰寫、不綁定 this      |
-| 模板字串            | 支援變數與換行的字串寫法         |
-| 解構賦值            | 快速拆解陣列與物件屬性          |
-| 展開運算子           | 快速複製與合併陣列/物件         |
-| 預設參數            | 函式參數設定預設值            |
-| 剩餘參數            | 收集多餘參數為陣列            |
-| 模組化             | 支援 `import`/`export` |
-| 類別              | 支援物件導向語法             |
-| Promise         | 處理非同步流程的機制           |
-
----
-
-## 事件與 DOM 操作
-
-### HTML
-
-```html
-<button onclick="sayHi()">點我</button>
-```
-
-### JavaScript
-
-```js
-function sayHi() {
-  alert("Hello!");
-}
-```
-
-或使用事件監聽：
-
-```html
-<button id="my-btn">點我</button>
-```
-```js
-document.getElementById("my-btn").addEventListener("click", function() {
-  alert("Clicked!");
-});
-```
-
----
-
-## JSON 與 API 簡介
-
-### JSON 格式
-
-```json
-{
-  "name": "Alice",
-  "age": 30
-}
-```
-
-### 轉換
-
-```js
-let json = '{"name":"Alice","age":30}';
-let obj = JSON.parse(json);           // 轉為物件
-let str = JSON.stringify(obj);        // 轉回字串
-```
 
 ---

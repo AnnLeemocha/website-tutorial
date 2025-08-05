@@ -3,7 +3,6 @@
 
 ---
 
-
 ## Node.js 支援兩種主流模組系統：
 
 | 特性        | CommonJS (CJS)             | ES Modules (ESM)                      |
@@ -125,3 +124,24 @@ import data from './data.json' assert { type: "json" };
 
 ---
 
+## JavaScript 執行架構的「層級關係」
+* 底層引擎：負責執行 JS 指令
+* 上層語法：由平台解讀與實作
+* 執行平台：提供模組系統、API 等
+> 底層引擎（如 V8） 負責 執行 JavaScript 語法（上層語法，如 ESM、CJS），而 執行平台（如 Chrome、Node.js） 則提供額外功能與模組系統。
+
+| 層級       | 代表              | 功能與角色                                                  |
+| -------- | --------------- | ------------------------------------------------------ |
+| **底層引擎** | V8、SpiderMonkey | **只負責執行 JavaScript 語法與運算**，不包含模組系統、不管 DOM、檔案系統等        |
+| **上層語法** | ES Modules (ESM)、CommonJS (CJS)、JS 語法糖  | **人類寫的語法**（如 `import/export`、`async/await`），由平台負責解析與處理 |
+| **執行平台** | 瀏覽器、Node.js  | 提供「模組系統」、「Web API（DOM、fetch）」、「Node API（fs、http）」等功能   |
+
+
+### 各大瀏覽器支援模組系統一覽表
+| 瀏覽器           | JavaScript 引擎  | 支援 **ES Modules** | 支援 **CommonJS** | 備註                          |
+| ------------- | -------------- | ----------------- | --------------- | --------------------------- |
+| **Chrome**    | V8             | ✅ 支援              | ❌ 不支援           | 支援 `<script type="module">` |
+| **Edge (新版)** | V8 (Chromium)  | ✅ 支援              | ❌ 不支援           | 和 Chrome 同樣基於 Chromium      |
+| **Firefox**   | SpiderMonkey   | ✅ 支援              | ❌ 不支援           | 支援原生 ESM                    |
+| **Safari**    | JavaScriptCore | ✅ 支援              | ❌ 不支援           | 蘋果早期即支援 ESM                 |
+| **Opera**     | V8 (Chromium)  | ✅ 支援              | ❌ 不支援           | 同樣基於 Chromium               |

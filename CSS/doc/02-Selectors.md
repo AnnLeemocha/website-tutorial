@@ -3,6 +3,10 @@
 參考：
 * [彭彭的教學課程 | CSS 基本教學](https://docs.google.com/presentation/d/1dY4PyAzQA-3_pXnGzFHRY1TOSqtcFtR33T6AjtEt7wU/edit?usp=sharing)
 
+範例：
+* [selectors.html](../example/selectors.html)
+* [selectors.css](../example/selectors.css)
+
 ---
 
 ## 選擇器 (Selector)

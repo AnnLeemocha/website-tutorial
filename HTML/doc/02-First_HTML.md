@@ -34,6 +34,10 @@
 
   * 有助於搜尋引擎與輔助工具（例如螢幕閱讀器）了解內容語言。
 
+* 相關連結：
+  * [HTML Spec | The html element](https://html.spec.whatwg.org/multipage/semantics.html#the-html-element)
+  * [MDN | \<html>](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/html)
+
 ---
 
 ### 3. `<head>` — 頁面的「頭部」，放非可見內容
@@ -45,6 +49,10 @@
   * 字元編碼 (`<meta charset="UTF-8">`)
   * 外部 CSS / 字體載入 (`<link>`)
   * SEO 設定、OG 設定、favicon 等
+
+* 相關連結：
+  * [HTML Spec | Document metadata](https://html.spec.whatwg.org/multipage/semantics.html#document-metadata)
+  * [MDN | \<head>](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/head)
 
 範例（常見 head 結構）：
 
@@ -63,6 +71,9 @@
 
   * 文字、圖片、影片、表單、按鈕、表格等
 * 是 HTML 文件的主體部分
+
+* 相關連結：
+  * [MDN | \<body>](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/body)
 
 範例：
 

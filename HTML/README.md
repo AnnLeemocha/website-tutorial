@@ -7,6 +7,7 @@
 1. [總覽](doc/01-Basic.md)
 2. [文件結構](doc/02-First_HTML.md)
 3. [常用標記/籤](doc/03-Common_Tags.md)
+4. [HTML5](doc/04-HTML5.md)
 
 ---
 

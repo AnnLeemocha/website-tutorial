@@ -55,5 +55,25 @@
 * 是一段以連字型大小（&）開頭、以分號（; ）結尾的文字（字串）。 
 * 常用於顯示保留字元（這些字元會被解析為 HTML 代碼）和不可見的字元（如“不換行空格”）。 
 * 也可以用來代替其他難以用標準鍵盤鍵入的字元。
-* 常用列表：https://developer.mozilla.org/en-US/docs/Glossary/Character_reference
-
+* 常用實體列表：  
+    https://developer.mozilla.org/en-US/docs/Glossary/Character_reference
+    | 字元 | Named Reference | Unicode Code-point |
+    |------|------------------|--------------------|
+    | &    | `&amp;`           | U+00026            |
+    | <    | `&lt;`            | U+0003C            |
+    | >    | `&gt;`            | U+0003E            |
+    | "    | `&quot;`          | U+00022            |
+    | '    | `&apos;`          | U+00027            |
+    |      | `&nbsp;`          | U+000A0            |
+    | –    | `&ndash;`         | U+02013            |
+    | —    | `&mdash;`         | U+02014            |
+    | ©    | `&copy;`          | U+000A9            |
+    | ®    | `&reg;`           | U+000AE            |
+    | ™    | `&trade;`         | U+02122            |
+    | ≈    | `&asymp;`         | U+02248            |
+    | ≠    | `&ne;`            | U+02260            |
+    | £    | `&pound;`         | U+000A3            |
+    | €    | `&euro;`          | U+020AC            |
+    | °    | `&deg;`           | U+000B0            |
+* 更多實體：  
+    https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references

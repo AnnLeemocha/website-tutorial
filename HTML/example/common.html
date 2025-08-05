@@ -162,6 +162,9 @@
                             <td>Anna Smith (tbody, tr2, td1)</td>
                             <td>30 (tbody, tr2, td2)</td>
                         </tr>
+                        <tr>
+                            <td colspan="2">========== 2 people in total ===========</td>
+                        </tr>
                     </tbody>
                 </table>
                 <hr>
@@ -181,8 +184,11 @@
                 <hr>
                 
                 表單 form
+                <br>
+                <br>
                 <form>
                     <div>
+                        <div>↓輸入欄(label + input)</div>
 
                         <label for="name">姓名:</label>
                         <input id="name" type="text" name="name">
@@ -192,8 +198,11 @@
                             <input type="email" name="email">
                         </label>
                     </div>
+
+                    <br>
                     
                     <div>                    
+                        <div>↓單選框(label + radio)</div>
                         <label>
                             性別:
                             <input type="radio" name="gender" value="male"> 男
@@ -201,15 +210,19 @@
                         </label>
                     </div>
 
+                    <br>
+
                     <div>
+                        <div>↓多選框(label + checkbox)</div>                        
                         <label for="checkbox">興趣:</label>
                         <input type="checkbox" name="interest" id="checkbox"> 運動
                         <input type="checkbox" name="interest" id="checkbox"> 遊戲
                     </div>
 
+                    <br>
+
                     <div>
-                        下拉式選單↓
-                        <br>
+                        <div>↓下拉式選單(label + select)</div>                        
                         <label for="nationality">國籍:</label>
                         <select id="nationality" name="nationality">
                             <option value="">-- 請選擇 --</option>
@@ -219,6 +232,8 @@
                             <option value="uk">英國</option>
                         </select>
                     </div>
+
+                    <br>
                     <button type="submit">送出</button>
                 </form>
                 <hr>
@@ -233,7 +248,7 @@
         </main>
 
         <!-- 側邊欄 -->
-        <aside>Aside</aside>
+        <aside>側邊欄 (aside)</aside>
 
         <!-- 頁尾 -->
         <footer>

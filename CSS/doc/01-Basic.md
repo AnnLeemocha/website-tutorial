@@ -5,6 +5,14 @@
 * [彭彭的教學課程 | CSS 基本教學](https://docs.google.com/presentation/d/1dY4PyAzQA-3_pXnGzFHRY1TOSqtcFtR33T6AjtEt7wU/edit?usp=sharing)
 * [MDN | CSS styling basics](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics)
 
+範例：
+* [inline_style.html](../example/inline_style.html)
+* [internal_style.html](../example/internal_style.html)
+* [external_style.html](../example/external_style.html)
+* [external_style.css](../example/external_style.css)
+* [basic_css.html](../example/basic_css.html)
+* [basic_css.css](../example/basic_css.css)
+
 ---
 
 ## CSS 的基本語法
@@ -186,6 +194,62 @@ CSS 設定中只要牽扯到尺寸相關的部份，例如長度、寬度、大�
 > ~~padding:5~~  
 
 單位參考連結：https://web.dev/learn/css/sizing#relative_lengths
+
+### 補充動畫
+
+#### Transition（過渡）
+`transition: [要動畫的屬性] [持續時間] [速度曲線] [延遲時間];`
+
+範例：
+```html
+<button class="button">滑鼠游標懸停時變色</button>
+```
+
+```css
+.button {
+  background-color: blue;
+  transition: background-color 0.5s ease;
+}
+
+.button:hover {
+  background-color: red;
+}
+```
+
+#### Animation（動畫）
+`animation: [名稱] [持續時間] [速度曲線] [延遲] [次數] [方向] [播放狀態];`
+
+使用範例：
+```html
+<div class="box">Animation 動畫範例</div>
+```
+```css
+/* 
+  @keyframes：
+    定義動畫的每個階段（百分比或 from → to） 
+*/
+@keyframes move {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(200px); }
+}
+
+/* .box 中的 animation 屬性用來啟用動畫 */
+.box {
+  animation: move 2s ease-in-out infinite;
+}
+```
+
+說明範例：  
+`animation: move 3s ease-in 1s 2 alternate forwards;`
+| 屬性          | 說明              |
+| ----------- | --------------- |
+| `move`      | `@keyframes` 名稱 |
+| `3s`        | 動畫持續時間          |
+| `ease-in`   | 動畫速度曲線          |
+| `1s`        | 延遲開始時間          |
+| `2`         | 播放次數（2 次）       |
+| `alternate` | 每次反方向播放         |
+| `forwards`  | 結束後保留最後狀態       |
 
 ### 延伸閱讀
 * Responsive web design (RWD, 響應式)  

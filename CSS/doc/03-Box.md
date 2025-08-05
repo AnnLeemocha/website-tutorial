@@ -4,6 +4,9 @@
 * [web.dev | Box Model](https://web.dev/learn/css/box-model)
 * [MDN | Debugging CSS](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Debugging_CSS)
 
+範例：
+* [box_model.html](../example/box_model.html)
+
 ---
 
 ## 盒子模型的領域
@@ -28,6 +31,7 @@
 | `margin` 會影響背景顏色區域      | 不會，背景顏色只會延伸到 `padding` 為止。               |
 | `padding` 和 `margin` 是一樣的東西 | `padding` 是內部空間，margin 是外部空間。            |
 
+![Box Model](../img/box_model.png)
 
 ### 區塊盒子（block boxes）
 一個擁有 block 外部顯示類型的盒子。
