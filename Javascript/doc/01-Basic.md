@@ -26,8 +26,8 @@ JavaScript 是一種用來為網頁添加互動功能的程式語言。它是前
 - 表單驗證
 - 動畫與特效
 - DOM 操作
-- 資料互動（AJAX、API）
-- 前端框架（如 React、Vue）
+- 資料互動 (AJAX、API)
+- 前端框架 (如 React、Vue)
 
 ---
 
@@ -51,14 +51,14 @@ JavaScript 是一種用來為網頁添加互動功能的程式語言。它是前
 * 放置在 `<head>` 中：
     * HTML 尚未載入完成時就執行 JS
     * 無法安全操作 DOM 元素
-    * 容易報錯（元素未存在）
+    * 容易報錯 (元素未存在)
 
-* 放置在 `<body>` 中（上）：
+* 放置在 `<body>` 中 (上)：
     * 該行被解析時立即執行 JS
     * 只能操作該行之前出現的 DOM
     * 後面元素還沒被解析
 
-* 放置在 `<body>` 中（底）：
+* 放置在 `<body>` 中 (底)：
     * HTML 幾乎解析完畢後才執行
     * 可以安全操作整個 DOM
     * 推薦放法，等同 `defer`
@@ -75,15 +75,15 @@ JavaScript 是一種用來為網頁添加互動功能的程式語言。它是前
 ```
 > type 屬性可省略，預設已為 `text/javascript`
 
-* 預設情況（沒加 defer）：
+* 預設情況 (沒加 defer)：
     * HTML 解析器會在讀到 `<script>` 時暫停解析，
     * 等 main.js 下載 + 執行完，再繼續解析 HTML。
-    * 這會導致頁面載入變慢、畫面出不來（阻塞渲染）。
+    * 這會導致頁面載入變慢、畫面出不來 (阻塞渲染)。
     * **建議在 `<script>` 放在 `<body>` 底時使用。**
 
 * 加上 defer 的寫法：
     * JavaScript 會背景下載。
-    * 等 HTML 完全解析完後，再依序執行（不阻塞畫面渲染）。
+    * 等 HTML 完全解析完後，再依序執行 (不阻塞畫面渲染)。
     * 頁面載入更順暢。
     * **建議在 `<script>` 放在 `<head>` 中時使用。**
 
@@ -110,24 +110,24 @@ JavaScript 是一種用來為網頁添加互動功能的程式語言。它是前
 * 其他：Symbol, Symbol
 * Object
   * 屬性鍵 (Property keys) 可以是任何符號或字串。
-  * 屬性鍵需要單（'）或雙引號（"）字串字面值，而不是模板字面值(``)。
+  * 屬性鍵需要單 (')或雙引號 (")字串字面值，而不是模板字面值(``)。
 * Array
   * typeof [] = object：  
-    陣列（Array）其實是特殊型態的物件（Object）。
+    陣列 (Array)其實是特殊型態的物件 (Object)。
     > JavaScript 的語言設計歷史造成的結果。
     > 需用 Array.isArray() 才能區分
 * null
   * typeof null = object：  
-    null 也是特殊型態的物件（Object）。
+    null 也是特殊型態的物件 (Object)。
     > JavaScript 的語言設計歷史造成的結果。
 
 ## 變數
 變數的名稱被稱為識別符號(identifier)。  
 
 有效的識別符號必須遵循以下規則：
-* 識別符號可以包含Unicode字母、美元符號（$）、下劃線字元（_）、數字（0-9），甚至一些 Unicode 字元。
+* 識別符號可以包含Unicode字母、美元符號 ($)、下劃線字元 (_)、數字 (0-9)，甚至一些 Unicode 字元。
 * 識別符號不能包含空格，因為解析器使用空格來分離輸入元素。 
-* 識別符號必須以字母、下劃線（_）或美元符號（$）開頭。 他們不能從數字開始，以防止數字和識別符號之間的混淆。
+* 識別符號必須以字母、下劃線 (_)或美元符號 ($)開頭。 他們不能從數字開始，以防止數字和識別符號之間的混淆。
 
 ---
 
@@ -141,7 +141,7 @@ let name;
 let name = "Alice";      // 可重新賦值
 const age = 25;          // 常數，不能變更
 var city;
-var city = "Taipei";     // 舊式語法（不推薦）
+var city = "Taipei";     // 舊式語法 (不推薦)
 ```
 
 ## 變數的作用域 (Scope)
@@ -166,7 +166,8 @@ console.log(y);   // 錯誤：y is not defined
 ## 常見運算子
 更多請參考：
 * [web.dev | Comparison operators](https://web.dev/learn/javascript/comparison)
-* [MDN | Expressions and operators]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators)
+* [MDN | Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators)
+* [MDN | Expressions and operators (Reference)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#expressions_and_operators)
 ```js
 // 指定運算：=, +=, -=, *=, /=, %=
 let a = 0;
@@ -199,8 +200,8 @@ console.log("10 / 5 =", 10 % 3); // 數字相除
 console.log("10 % 5 =", 10 % 3); // 數字相除後的餘數
 
 // 比較運算：>, <, ==, >=, <=
-console.log("a == b : ", a == b)      // 相等（值）
-console.log("a === b : ", a === b)     // 全等（值與型別）
+console.log("a == b : ", a == b)      // 相等 (值)
+console.log("a === b : ", a === b)     // 全等 (值與型別)
 console.log("a != b : ", a != b)      // 不等
 console.log("a !== b : ", a !== b)     // 全不等 (null, undefined)
 console.log("a > b", a > b)       // 大於

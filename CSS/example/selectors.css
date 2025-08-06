@@ -1,31 +1,31 @@
 /* 簡單的選擇器 */
 
-/* 通用選擇器（Universal selector） */
+/* 通用選擇器 (Universal selector) */
 * {
     color: darkblue;
 }
 
-/* 類型選取器（Type selector） */
+/* 類型選取器 (Type selector) */
 p {
   color: red;
 }
 
-/* 類別選取器（Class selector） */
+/* 類別選取器 (Class selector) */
 .my-class {
   color: red;
 }
 
-/* ID 選取器（ID selector） */
+/* ID 選取器 (ID selector) */
 #my-id {
   border: 2px dotted red;
 }
 
-/* 屬性選取器（Attribute selector） */
+/* 屬性選取器 (Attribute selector) */
 [data-type='primary'] {
   color: red;
 }
 
-/* 分組選取器（Selector list） */
+/* 分組選取器 (Selector list) */
 .my-class,
 #my-id,
 [data-type='primary'] {
@@ -35,13 +35,13 @@ p {
 /* -------------------------------- */
 /* 擬類別和擬元素 */
 
-/* 擬類別（Pseudo classes） */
+/* 擬類別 (Pseudo classes) */
 a:hover {
   outline: 1px solid green;
   color: red;
 }
 
-/* 擬元素（Pseudo elements） */
+/* 擬元素 (Pseudo elements) */
 .my-element::before {
   content: 'Prefix - ';
   color: red;
@@ -53,22 +53,22 @@ p {
   color: darkblue;
 }
 
-/* 後代選擇器（Descendant combinator） */
+/* 後代選擇器 (Descendant combinator) */
 .container strong {
   color: red;
 }
 
-/* 子代選擇器（Child combinator） */
+/* 子代選擇器 (Child combinator) */
 .parent > p {
   color: red;
 }
 
-/* 一般兄弟選擇器（General sibling combinator） */
+/* 一般兄弟選擇器 (General sibling combinator) */
 h2 ~ p {
   color: red;
 }
 
-/* 相鄰兄弟選擇器（Adjacent sibling combinator） */
+/* 相鄰兄弟選擇器 (Adjacent sibling combinator) */
 h3 + p {
   color: red;
 }

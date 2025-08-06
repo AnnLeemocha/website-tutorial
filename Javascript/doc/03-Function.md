@@ -1,5 +1,11 @@
 # JavaScript 教學 - 函式基礎
 
+參考：
+* [彭彭的教學課程 | 流程控制](https://docs.google.com/presentation/d/17Atsg0gRhYaSaAMT4ztHxdeoGIui_zNj1vTMsMiWrRw/edit?usp=sharing)
+
+範例：
+* [function.html](../example/function.html)
+* [function.js](../example/function.js)
 
 ---
 
@@ -47,7 +53,7 @@ let add = function(n1, n2) {
 };
 ```
 
-### 箭頭函式（ES6）：
+### 箭頭函式 (ES6)：
 
 ```js
 const add = (a, b) => a + b;

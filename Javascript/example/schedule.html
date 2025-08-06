@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width" />
+        <link rel="shortcut icon" href="../img/A.png" type="image/x-icon">
+        
+        <title>HTML Schedule in JavaScript</title>
+
+        <script src="schedule.js" defer></script>
+
+        <style>
+            #delay-count, 
+            #loop-count {
+                color: rgb(140, 52, 227);
+                font-weight: bold;
+                padding: 0 10px 10px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>JavaScript Schedule</h1>
+        <p>請打開瀏覽器的控制台(Console)查看結果 [F12]</p>
+        <p>或使用 node 執行 [node schedule.js] 後在終端上查看執行結果</p>
+
+        <section>
+            <h3>計時器 (每秒執行一次)</h3>
+            <div id="loop-count">尚未開始</div>
+            <button id="loop-start" onclick="loop()">開始</button>
+            <button id="loop-stop" onclick="stopLoop()">停止</button>
+        </section>
+
+        <section>
+            <h3>延遲執行 (3秒後執行)</h3>
+            <div id="delay-count">尚未開始</div>
+            <button id="delay-start" onclick="delay(3)">開始</button>
+            <button id="delay-stop" onclick="stopDelay()">停止</button>
+        </section>
+    </body>
+</html>

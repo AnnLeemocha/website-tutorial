@@ -41,14 +41,14 @@ CSS 規則是一個代碼塊，包含一個或多個選擇器和一個或多個�
 
 在 HTML 中使用 CSS 有三種常見方式：
 
-1. **行內樣式（Inline Style）**
+1. **行內樣式 (Inline Style)**
    直接在 HTML 標籤中加入 `style` 屬性，並寫入 CSS 語法。
 
    ```html
    <p style="color: blue; font-size: 16px;">這是一段文字</p>
    ```
 
-2. **內部樣式（Internal Style）**
+2. **內部樣式 (Internal Style)**
    在 HTML 文件的 `<head>` 區塊中使用 `<style>` 標籤，撰寫 CSS。
 
    ```html
@@ -60,7 +60,7 @@ CSS 規則是一個代碼塊，包含一個或多個選擇器和一個或多個�
    </style>
    ```
 
-3. **外部樣式（External Style）**
+3. **外部樣式 (External Style)**
    將 CSS 寫在外部 `.css` 檔案中，並透過 `<link>` 標籤引入 HTML。
 
    ```html
@@ -114,21 +114,21 @@ CSS 規則是一個代碼塊，包含一個或多個選擇器和一個或多個�
 相關連結：https://developer.mozilla.org/en-US/docs/Web/CSS/margin
 | 屬性                                                           | 說明          | 範例                   |
 | ------------------------------------------------------------ | ----------- | -------------------- |
-| `margin`                                                     | 元素與外部距離（四邊） | `margin: 20px;`      |
+| `margin`                                                     | 元素與外部距離 (四邊) | `margin: 20px;`      |
 | `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | 可分別設定四邊     | `margin-left: 10px;` |
 
 ### padding 相關屬性
 相關連結：https://developer.mozilla.org/en-US/docs/Web/CSS/padding
 | 屬性                                                               | 說明             | 範例                  |
 | ---------------------------------------------------------------- | -------------- | ------------------- |
-| `padding`                                                        | 內容與邊框之間的距離（四邊） | `padding: 15px;`    |
+| `padding`                                                        | 內容與邊框之間的距離 (四邊) | `padding: 15px;`    |
 | `padding-top`, `padding-right`, `padding-bottom`, `padding-left` | 分別設定內距         | `padding-top: 5px;` |
 
 ### border 相關屬性
 相關連結：https://developer.mozilla.org/en-US/docs/Web/CSS/border
 | 屬性              | 說明               | 範例                                     |
 | --------------- | ---------------- | -------------------------------------- |
-| `border`        | 設定整體邊框（寬度、樣式、顏色） | `border: 1px solid #000;`              |
+| `border`        | 設定整體邊框 (寬度、樣式、顏色) | `border: 1px solid #000;`              |
 | `border-radius` | 邊框圓角             | `border-radius: 8px;`                  |
 | `box-shadow`    | 陰影效果             | `box-shadow: 0 0 5px rgba(0,0,0,0.2);` |
 
@@ -140,7 +140,7 @@ CSS 規則是一個代碼塊，包含一個或多個選擇器和一個或多個�
 | `inline`       | 只佔內容寬度，例如 `<span>`   |
 | `inline-block` | 像 inline 一樣排列，但可設定寬高 |
 | `none`         | 隱藏元素                 |
-| `flex`         | 啟用彈性排版（進階）           |
+| `flex`         | 啟用彈性排版 (進階)           |
 
 ### width 與 height 屬性
 相關連結：https://developer.mozilla.org/en-US/docs/Web/CSS/width  
@@ -149,9 +149,9 @@ CSS 規則是一個代碼塊，包含一個或多個選擇器和一個或多個�
 | ----------- | ------------- | ------------------ |
 | `width`     | 設定寬度          | `width: 300px;`    |
 | `height`    | 設定高度          | `height: 150px;`   |
-| `max-width` | 最大寬度（通常配合響應式） | `max-width: 100%;` |
+| `max-width` | 最大寬度 (通常配合響應式) | `max-width: 100%;` |
 
-### 定位（Position）屬性
+### 定位 (Position)屬性
 相關連結：https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning
 | 屬性值        | 說明                |
 | ---------- | ----------------- |
@@ -197,7 +197,7 @@ CSS 設定中只要牽扯到尺寸相關的部份，例如長度、寬度、大�
 
 ### 補充動畫
 
-#### Transition（過渡）
+#### Transition (過渡)
 `transition: [要動畫的屬性] [持續時間] [速度曲線] [延遲時間];`
 
 範例：
@@ -216,7 +216,7 @@ CSS 設定中只要牽扯到尺寸相關的部份，例如長度、寬度、大�
 }
 ```
 
-#### Animation（動畫）
+#### Animation (動畫)
 `animation: [名稱] [持續時間] [速度曲線] [延遲] [次數] [方向] [播放狀態];`
 
 使用範例：
@@ -226,7 +226,7 @@ CSS 設定中只要牽扯到尺寸相關的部份，例如長度、寬度、大�
 ```css
 /* 
   @keyframes：
-    定義動畫的每個階段（百分比或 from → to） 
+    定義動畫的每個階段 (百分比或 from → to) 
 */
 @keyframes move {
   0%   { transform: translateX(0); }
@@ -247,7 +247,7 @@ CSS 設定中只要牽扯到尺寸相關的部份，例如長度、寬度、大�
 | `3s`        | 動畫持續時間          |
 | `ease-in`   | 動畫速度曲線          |
 | `1s`        | 延遲開始時間          |
-| `2`         | 播放次數（2 次）       |
+| `2`         | 播放次數 (2 次)       |
 | `alternate` | 每次反方向播放         |
 | `forwards`  | 結束後保留最後狀態       |
 

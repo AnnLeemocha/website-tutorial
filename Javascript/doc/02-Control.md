@@ -1,5 +1,6 @@
 # JavaScript 教學 - 控制流程
 
+參考：
 * [彭彭的教學課程 | 流程控制](https://docs.google.com/presentation/d/17Atsg0gRhYaSaAMT4ztHxdeoGIui_zNj1vTMsMiWrRw/edit?usp=sharing)
 
 範例：
@@ -10,7 +11,7 @@
 
 
 ## 條件判斷
-### if, if...else, if...else if...else
+
 ### if
 ```js
 if ( true ) console.log("True");
@@ -22,6 +23,7 @@ if ( true ) {
     if (判斷結果) 若判斷結果是對的 (true)，則執行右側的程式碼，否則忽略此行程式碼
 */
 ```
+
 ### if...else, if...else if...else
 ```js
 if (score >= 60) {
@@ -38,6 +40,7 @@ if (score >= 60) {
     }
 */
 ```
+
 ### if...else if...else
 ```js
 var x = prompt("請輸入一個數字","");
@@ -75,7 +78,7 @@ switch (score) {
     // 如果表達式 === "A"，就執行這裡
     console.log("優秀");
     break;
-    // `break`：跳出 `switch` 結構，否則會繼續執行下一個 `case`（稱為 "fall-through" 現象）
+    // `break`：跳出 `switch` 結構，否則會繼續執行下一個 `case` (稱為 "fall-through" 現象)
   case "B":
     console.log("良好");
     break;
@@ -110,7 +113,9 @@ switch (score) {
 */
 ```
 
-### 布林值與其他資料型態的強制轉換
+---
+
+## 布林值與其他資料型態的強制轉換
 | 資料型態 | 轉換為 true | 轉換為 false |
 | ------- | ----------- | ----------- |
 |  字串    | 非空字串 ("Hello World") | 空字串 ("") |

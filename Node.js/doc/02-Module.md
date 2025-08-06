@@ -7,12 +7,12 @@
 
 | 特性        | CommonJS (CJS)             | ES Modules (ESM)                      |
 | --------- | -------------------------- | ------------------------------------- |
-| 檔案副檔名     | `.js`                      | `.mjs` 或 `.js`（搭配 `"type": "module"`） |
+| 檔案副檔名     | `.js`                      | `.mjs` 或 `.js` (搭配 `"type": "module"`) |
 | 匯入語法      | `const x = require('x')`   | `import x from 'x'`                   |
 | 匯出語法      | `module.exports = x`       | `export default x` / `export {}`      |
-| 執行時機      | 同步載入（require 即執行）          | 非同步載入（import 是靜態解析）                   |
-| 執行環境      | Node.js 傳統預設支援             | Node.js 14+ 支援（需設定）                   |
-| 動態載入支援    | 較容易（可動態 require）           | 使用 `import()` 實現動態載入                  |
+| 執行時機      | 同步載入 (require 即執行)          | 非同步載入 (import 是靜態解析)                   |
+| 執行環境      | Node.js 傳統預設支援             | Node.js 14+ 支援 (需設定)                   |
+| 動態載入支援    | 較容易 (可動態 require)           | 使用 `import()` 實現動態載入                  |
 | 與 JSON 相容 | `require('./data.json')` ✅ | `import` JSON 需加 `assert`             |
 
 ---
@@ -36,7 +36,7 @@ console.log(math.add(2, 3));
 ### ES Modules 範例
 
 ```js
-// math.mjs 或 math.js（配合 package.json 設定）
+// math.mjs 或 math.js (配合 package.json 設定)
 export function add(a, b) {
   return a + b;
 }
@@ -62,18 +62,18 @@ console.log(add(2, 3));
 
 ### 選用 CommonJS 的情境：
 
-* 專案已經是 CJS 架構（舊有 Node 專案）
-* 使用大量第三方套件仍以 CommonJS 為主（如 `require` 的寫法）
+* 專案已經是 CJS 架構 (舊有 Node 專案)
+* 使用大量第三方套件仍以 CommonJS 為主 (如 `require` 的寫法)
 * 工具型腳本、不需瀏覽器相容
 * 快速原型開發、簡易 CLI 工具
 
 ### 選用 ES Modules 的情境：
 
-* 專案以 **現代前端技術為主**（例如前後端同用 `import/export`）
-* 與 TypeScript、React 等搭配（保持一致性）
+* 專案以 **現代前端技術為主** (例如前後端同用 `import/export`)
+* 與 TypeScript、React 等搭配 (保持一致性)
 * 使用打包工具如 Webpack、Vite 等
-* 需要支援 Tree Shaking（靜態分析移除未使用程式碼）
-* 正在開發可被瀏覽器直接使用的程式碼（例如 Deno、生態一致）
+* 需要支援 Tree Shaking (靜態分析移除未使用程式碼)
+* 正在開發可被瀏覽器直接使用的程式碼 (例如 Deno、生態一致)
 
 ---
 
@@ -128,13 +128,13 @@ import data from './data.json' assert { type: "json" };
 * 底層引擎：負責執行 JS 指令
 * 上層語法：由平台解讀與實作
 * 執行平台：提供模組系統、API 等
-> 底層引擎（如 V8） 負責 執行 JavaScript 語法（上層語法，如 ESM、CJS），而 執行平台（如 Chrome、Node.js） 則提供額外功能與模組系統。
+> 底層引擎 (如 V8) 負責 執行 JavaScript 語法 (上層語法，如 ESM、CJS)，而 執行平台 (如 Chrome、Node.js) 則提供額外功能與模組系統。
 
 | 層級       | 代表              | 功能與角色                                                  |
 | -------- | --------------- | ------------------------------------------------------ |
 | **底層引擎** | V8、SpiderMonkey | **只負責執行 JavaScript 語法與運算**，不包含模組系統、不管 DOM、檔案系統等        |
-| **上層語法** | ES Modules (ESM)、CommonJS (CJS)、JS 語法糖  | **人類寫的語法**（如 `import/export`、`async/await`），由平台負責解析與處理 |
-| **執行平台** | 瀏覽器、Node.js  | 提供「模組系統」、「Web API（DOM、fetch）」、「Node API（fs、http）」等功能   |
+| **上層語法** | ES Modules (ESM)、CommonJS (CJS)、JS 語法糖  | **人類寫的語法** (如 `import/export`、`async/await`)，由平台負責解析與處理 |
+| **執行平台** | 瀏覽器、Node.js  | 提供「模組系統」、「Web API (DOM、fetch)」、「Node API (fs、http)」等功能   |
 
 
 ### 各大瀏覽器支援模組系統一覽表

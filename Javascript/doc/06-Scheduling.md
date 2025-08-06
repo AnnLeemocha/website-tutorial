@@ -1,5 +1,11 @@
 # JavaScript 教學 - 自動排程
 
+參考：
+
+範例：
+* [schedule.html](../example/schedule.html)
+* [schedule.js](../example/schedule.js)
+
 
 ---
 

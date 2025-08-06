@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>首頁</title>
+    <link rel="shortcut icon" href="/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- 導覽列 -->
+    <nav>
+        <!-- 左邊 LOGO / ICON -->
+        <div class="logo">
+            <img src="/A.png" alt="MyLyrics"> MyLyrics
+        </div>
+
+        <!-- 右邊導覽連結 -->
+        <div class="menu">
+            <a href="/">首頁</a>
+            <a href="/about">關於</a>
+            <a href="/contact">聯絡我們</a>
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="title">歡迎來到歌詞網站</h1>
+        <div class="container">
+            <!-- 首頁標題 -->
+
+            <!-- 歌單列表 -->
+            <div id="song-list" class="grid">
+                <!-- JavaScript 動態插入歌曲卡片 -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        fetch('/api/songs')
+            .then(res => res.json())
+            .then(songs => {
+                const container = document.getElementById('song-list');
+                songs.forEach(song => {
+                    const card = document.createElement('a');
+                    card.href = `/lyrics?id=${song.id}`;
+                    card.className = "card transition";
+                    card.innerHTML = `
+            <img src="/${song.image}" alt="${song.title}" class="w-24 h-24 object-cover rounded">
+            <div class="card-content">
+              <h2 class="text-gray-900 text-2xl font-semibold">${song.title}</h2>
+              <p class="artist text-base text-gray-500">${song.artist}</p>
+            </div>
+          `;
+                    container.appendChild(card);
+                });
+            });
+    </script>
+</body>
+
+</html>

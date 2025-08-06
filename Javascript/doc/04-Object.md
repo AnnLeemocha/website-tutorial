@@ -1,5 +1,11 @@
 # JavaScript 教學 - 物件基礎
 
+參考：
+
+範例：
+* [object.html](../example/object.html)
+* [object.js](../example/object.js)
+
 ---
 
 任何日常生活中的東西，都可以是一種物件：電腦、手機、房子、貓、狗、人類。
@@ -73,18 +79,55 @@ user.greet(); // 呼叫方法
     console.log(line2);
     ```
 
-### 陣列操作
+### 原始型別 (Primitive Types)
+`number`、`string`、`boolean` 等，變數儲存的是值，不會共享內層資料
 
+### 參考型別 (Reference Types)
+`object`、`array`、`function` 等，變數儲存的不是值本身，而是指向記憶體中資料的參考 (地址)。
+* 直接複製會只複製第一層
+* 拷貝後會共享內層資料
+
+#### 淺拷貝
 ```js
-let nums = [1, "hi", {}];
-nums.push(100);           // 新增元素
-console.log(nums[0]);     // 讀取第一個元素
-console.log(nums.length); // 取得陣列長度
+const user = {
+    name: "Alice",
+    info: { age: 25 }  
+};
+
+const user2 = user;
+const user2 = { ...user };
+const user2 = Object.assign({}, user);
+
+user.info.age = 100;
+console.log("user2:");
+console.log(user2);
+consoleuser2.log("user:");
+console.log(user);  // 被更改了
+```
+#### 深拷貝
+```js
+const user = {
+    name: "Alice",
+    info: { age: 25 }  
+};
+
+const user2 = JSON.parse(JSON.stringify(user));
+
+// 注意!用此方法函式不能被 clone，會跳錯
+const user2 = structuredClone(user); 
+
+user.info.age = 100;
+console.log("user2:");
+console.log(user2);
+consoleuser2.log("user:");
+console.log(user); // 不會被修改
 ```
 
 ---
 
 ## 常用內建函式與方法
+
+更多內建物件：https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
 | 類型   | 方法/屬性                             | 範例                             |
 | ---- | --------------------------------- | ------------------------------ |
@@ -95,6 +138,9 @@ console.log(nums.length); // 取得陣列長度
 | 轉型   | `Number()`, `String()`            | `Number("123")`, `String(123)` |
 
 ---
+
+## 陣列物件
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 ## 字串物件
 程式中使用的字串，其實是一個物件。
@@ -111,30 +157,29 @@ console.log(name.length); // 5
     | ----------------------- | ------------------- | ------------------------------------ |
     | `charAt(字元位置)`          | 取得字串中特定位置的字元        | `"hello".charAt(1)` → `"e"`          |
     | `indexOf(想搜尋的文字)`       | 搜尋字串中是否包含特定文字，並回傳位置 | `"apple".indexOf("p")` → `1`         |
-    | `substring(開頭位置, 結束位置)` | 取得子字串（不含結束位置）       | `"abcdef".substring(1, 4)` → `"bcd"` |
+    | `substring(開頭位置, 結束位置)` | 取得子字串 (不含結束位置)       | `"abcdef".substring(1, 4)` → `"bcd"` |
     | `toLowerCase()`         | 將字串轉為小寫             | `"HELLO".toLowerCase()` → `"hello"`  |
     | `toUpperCase()`         | 將字串轉為大寫             | `"hello".toUpperCase()` → `"HELLO"`  |
+
 
 ## 數學物件
 在程式中直接寫 Math 取得系統內建的數學物件，提供許多常見的數學運算支援。
 
 | 類型 | 屬性 / 方法          | 說明            | 範例                              |
 | -- | ---------------- | ------------- | ------------------------------- |
-| 屬性 | `Math.PI`        | 圓周率（π）        | `Math.PI` → `3.141592653589793` |
-| 屬性 | `Math.E`         | 自然對數的底數（e）    | `Math.E` → `2.718281828459045`  |
+| 屬性 | `Math.PI`        | 圓周率 (π)        | `Math.PI` → `3.141592653589793` |
+| 屬性 | `Math.E`         | 自然對數的底數 (e)    | `Math.E` → `2.718281828459045`  |
 | 方法 | `Math.random()`  | 取得 0\~1 之間的亂數 | `Math.random()` → 例如 `0.5342`   |
 | 方法 | `Math.abs(數字)`   | 取得數字的絕對值      | `Math.abs(-8)` → `8`            |
 | 方法 | `Math.pow(x, y)` | 計算 x 的 y 次方   | `Math.pow(2, 3)` → `8`          |
 | 方法 | `Math.round(數字)` | 四捨五入          | `Math.round(4.6)` → `5`         |
-| 方法 | `Math.floor(數字)` | 無條件捨去（向下取整）   | `Math.floor(4.9)` → `4`         |
-| 方法 | `Math.ceil(數字)`  | 無條件進位（向上取整）   | `Math.ceil(4.1)` → `5`          |
+| 方法 | `Math.floor(數字)` | 無條件捨去 (向下取整)   | `Math.floor(4.9)` → `4`         |
+| 方法 | `Math.ceil(數字)`  | 無條件進位 (向上取整)   | `Math.ceil(4.1)` → `5`          |
 | 方法 | `Math.sqrt(數字)`  | 對數字開平方根       | `Math.sqrt(16)` → `4`           |
 
 ---
 
-## JSON 與 API 簡介
-
-### JSON 格式
+### JSON 物件
 
 ```json
 {
@@ -143,7 +188,7 @@ console.log(name.length); // 5
 }
 ```
 
-### 轉換
+JSON 轉換成 js 物件：
 
 ```js
 let json = '{"name":"Alice","age":30}';

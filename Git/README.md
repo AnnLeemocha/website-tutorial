@@ -11,3 +11,10 @@
 📌 每個章節為獨立檔案，依照順序閱讀可快速建立完整概念。
 
 若有錯誤或建議，歡迎發 PR 或開 Issue 
+
+---
+
+## 🔗 補充資源
+
+* [Git 官方網站](https://git-scm.com/)
+* [Pro Git 中文版](https://git-scm.com/book/zh-tw/v2)

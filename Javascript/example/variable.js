@@ -34,7 +34,7 @@ let myname;
 let myname2 = "Alice";      // 可重新賦值
 const age = 25;          // 常數，不能變更
 var city;
-var city = "Taipei";     // 舊式語法（不推薦）
+var city = "Taipei";     // 舊式語法 (不推薦)
 
 console.log(`let myname : ${myname}
 let myname2 : ${myname2}

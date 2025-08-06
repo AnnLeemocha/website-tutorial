@@ -7,7 +7,7 @@
 * [no_semantic.html](../example/no_semantic.html)
 * [semantic.html](../example/semantic.html)
 
-## 有使用語意標籤（Semantic HTML）的好處
+## 有使用語意標籤 (Semantic HTML)的好處
 * 更清楚的結構
     * 標籤本身就說明了內容的意圖，如 `<header>` 表示頁首，`<article>` 表示一篇文章。
 * 更清楚的結構

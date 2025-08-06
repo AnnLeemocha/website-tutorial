@@ -1,0 +1,148 @@
+/* style.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f8f9fa;
+  color: white;
+
+  background: linear-gradient(to bottom, #00111f, #004080);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.logo img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+  filter: brightness(0) invert(1);
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* 確保在最上層 */
+  /* background-color: #007bff; */
+  background: #020024;
+  /* background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(61, 83, 181, 1) 100%); */
+  background: linear-gradient(90deg, rgb(32 27 108) 0%, rgba(9, 9, 121, 1) 35%, rgba(61, 83, 181, 1) 100%);
+  color: white;
+  min-height: 3rem;
+  /* padding: 0 20px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #606060;
+}
+
+nav .logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 20px;
+}
+
+nav .logo span {
+  font-size: 1.5rem;
+}
+
+nav .menu {
+  margin-right: 20px;
+}
+
+nav .menu a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav .menu a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 1rem 2rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1.title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+.card div p.artist {
+    text-overflow: ellipsis;
+    /* max-height: 100px; */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card:hover {
+  background-color: #d0daff;
+}
+
+.card img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.card p {
+  margin: 4px 0 0;
+  color: #555;
+}
+
+#song-lyrics {
+    line-height: 2rem;
+    white-space: pre-wrap;
+}

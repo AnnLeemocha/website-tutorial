@@ -13,7 +13,7 @@
 ### 1. 簡單的選擇器
 最直接的一組選擇器針對 HTML 元素以及類、ID 和其他可以添加到 HTML 標籤中的屬性。
 
-* 通用選擇器（Universal selector）  
+* 通用選擇器 (Universal selector)  
   (也稱為萬用字元) 可與任何元素相符。
   ```css
   * {
@@ -21,7 +21,7 @@
   }
   ```
 
-* 類型選取器（Type selector）  
+* 類型選取器 (Type selector)  
   直接比對 HTML 元素。
   ```css
   p {
@@ -29,7 +29,7 @@
   }
   ```
 
-* 類別選取器（Class selector）    
+* 類別選取器 (Class selector)    
   HTML 元素可在 class 屬性中定義一或多個項目。類別選取器會比對任何已套用該類別的元素。
   ```html
   <div class="my-class">DIV</div>
@@ -42,7 +42,7 @@
   }
   ```
 
-* ID 選取器（ID selector）  
+* ID 選取器 (ID selector)  
   含有 id 屬性的 HTML 元素，應是該 ID 值在頁面上唯一的元素。您可以使用 ID 選取器選取元素。
   ```html
   <div id="message">MESSAGE</div>
@@ -53,7 +53,7 @@
   }
   ```
 
-* 屬性選取器（Attribute selector）  
+* 屬性選取器 (Attribute selector)  
   尋找具有特定 HTML 屬性或特定 HTML 屬性值的元素。使用方括號 ([ ]) 將選取器包起來，指示 CSS 尋找屬性。
   ```html
   <div data-type="primary">PRIMARY</div>
@@ -64,7 +64,7 @@
   }
   ```
 
-* 分組選取器（Selector list）  
+* 分組選取器 (Selector list)  
   選取器不必只比對單一元素。您可以使用逗號將多個選取器分組。
   ```css
   strong,
@@ -76,7 +76,7 @@
   ```
 
 ### 2. 擬類別和擬元素
-* 擬類別（Pseudo classes）  
+* 擬類別 (Pseudo classes)  
   HTML 元素會處於各種狀態，可能是因為與其互動，或是其中一個子元素處於特定狀態。
   ```css
   /* 滑鼠游標懸停在 a 元素上 */
@@ -85,7 +85,7 @@
   }
   ```
 
-* 擬元素（Pseudo elements）  
+* 擬元素 (Pseudo elements)  
   虛擬元素不會回應平台狀態，而是會以 CSS 插入新元素的方式運作。
   ```css
   /* 在元素開頭插入內容 */
@@ -98,7 +98,7 @@
 組合運算子  
 https://developer.mozilla.org/zh-TW/docs/Web/CSS/CSS_selectors#組合選擇器
 
-* 後代選擇器（Descendant combinator）  
+* 後代選擇器 (Descendant combinator)  
   ` ` (空格) 組合器選擇前一個元素的後代節點。
 
   **HTML**
@@ -112,7 +112,7 @@ https://developer.mozilla.org/zh-TW/docs/Web/CSS/CSS_selectors#組合選擇器
   **CSS**
   ```css
   /*
-    這裡 <strong> 是 .container 的後代（透過 <section> → <p>），
+    這裡 <strong> 是 .container 的後代 (透過 <section> → <p>)，
     即使層級較深，仍會被選中。因此，bold 文字會變成藍色。
   */
   .container strong {
@@ -120,7 +120,7 @@ https://developer.mozilla.org/zh-TW/docs/Web/CSS/CSS_selectors#組合選擇器
   }
   ```
 
-* 子代選擇器（Child combinator）  
+* 子代選擇器 (Child combinator)  
   `>` 組合器選擇前一個元素的直接子代的節點。
 
   **HTML**
@@ -143,7 +143,7 @@ https://developer.mozilla.org/zh-TW/docs/Web/CSS/CSS_selectors#組合選擇器
   }
   ```
 
-* 一般兄弟選擇器（General sibling combinator）  
+* 一般兄弟選擇器 (General sibling combinator)  
   `~` 組合器選擇兄弟元素，也就是說，後一個節點在前一個節點後面的任意位置，並且共享同一個父節點。
 
   **HTML**
@@ -163,7 +163,7 @@ https://developer.mozilla.org/zh-TW/docs/Web/CSS/CSS_selectors#組合選擇器
   }
   ```
 
-* 相鄰兄弟選擇器（Adjacent sibling combinator）  
+* 相鄰兄弟選擇器 (Adjacent sibling combinator)  
   `+` 組合器選擇相鄰元素，即後一個元素緊接在前一個之後，並且共用同一個父節點。
 
   **HTML**

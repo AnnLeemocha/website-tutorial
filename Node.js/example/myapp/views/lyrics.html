@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>歌詞頁面</title>
+    <link rel="shortcut icon" href="/A.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+    <!-- 返回 -->
+    <!-- <div class="fixed top-4 left-4"> -->
+    <nav>
+        <div class="logo">
+            <a href="/" class="text-white font-bold hover:underline">← 回首頁</a>
+        </div>
+    </nav>
+    <!-- </div> -->
+    <main>
+        <div class="max-w-3xl mx-auto p-6 pt-20">
+            <div class="text-center">
+                <h1 id="song-title" class="text-3xl font-bold mb-2"></h1>
+                <h2 id="song-artist" class="text-lg text-gray-400 mb-4"></h2>
+                <img id="song-image" src="" alt="cover" class="w-64 mx-auto rounded shadow mb-6">
+            </div>
+
+            <!-- <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-4">歌詞</h3>
+                <pre id="song-lyrics" class="whitespace-pre-wrap text-gray-800">載入中...</pre>
+            </div> -->
+            <div class="bg-gray-100 p-6 rounded shadow">
+                <h3 class="text-xl font-semibold mb-4">歌詞</h3>
+                <div id="song-lyrics" class="text-gray-800">載入中...</pre>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 取得 URL 中的 id
+        const params = new URLSearchParams(window.location.search);
+        const songId = params.get('id');
+
+        fetch(`/api/songs/${songId}`)
+            .then(res => {
+                if (!res.ok) throw new Error('找不到歌曲');
+                return res.json();
+            })
+            .then(song => {
+                document.getElementById('song-title').textContent = song.title;
+                document.getElementById('song-artist').textContent = song.artist;
+                document.getElementById('song-image').src = '/' + song.image;
+                document.getElementById('song-image').alt = song.title;
+                document.getElementById('song-lyrics').textContent = song.lyrics;
+            })
+            .catch(err => {
+                document.querySelector('pre').textContent = '載入失敗：' + err.message;
+            });
+    </script>
+</style>
+
+</body>
+
+</html>
