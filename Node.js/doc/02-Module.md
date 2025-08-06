@@ -1,5 +1,10 @@
 # Node.js 教學 - 模組化方式比較：CommonJS vs ES Modules
 
+參考：
+
+範例：
+* [commonjs/](../example/commonjs/app.js)
+* [esmodule/](../example/esmodule/app.js)
 
 ---
 
