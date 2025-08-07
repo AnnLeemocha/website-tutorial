@@ -231,6 +231,81 @@ console.log(data);
 
 ---
 
+## 補充：
+
+### 全域安裝 (Global Install) 
+```bash
+npm install -g <套件名稱>
+```
+特徵：
+* 套件會被安裝到系統層級，整台電腦都可以用。
+
+使用時機：
+* 安裝開發工具或 CLI 工具，例如：
+    * 執行 CLI 工具：`npx nodemon app.js`
+    * 建立新專案：`npx create-react-app my-app`
+    * 執行測試工具：`npx jest`
+    * 執行套件中提供的 script，而不必安裝到全域。
+
+好處：
+* 安裝一次，多個專案可共用。
+
+缺點：
+* 不同專案可能出現版本衝突。
+* 不易追蹤套件版本 (因為不寫在 `package.json`)。
+
+安裝位置 (依作業系統而異)：
+* Windows: `C:\Users\<你>\AppData\Roaming\npm`
+* macOS/Linux: `/usr/local/lib/node_modules`
+
+
+### 專案內安裝 (Local Install)
+```bash
+npm install <套件名稱>
+```
+
+特徵：
+* 套件會被安裝到當前專案資料夾的 node_modules 中。
+
+使用時機：
+* 安裝專案需要的函式庫或開發時使用的工具。
+
+可區分為兩種角色：
+* 一般依賴 (dependencies)
+  ```bash
+  npm install axios
+  ```
+  > 用於專案執行時必需的套件 (會寫進 dependencies)
+
+* 開發依賴 (devDependencies)
+  ```bash
+  npm install --save-dev nodemon
+  ```
+  > 僅在開發階段需要的工具，如打包工具、測試工具 (會寫進 devDependencies)
+
+好處：
+* 各專案獨立，不怕版本衝突。
+* 套件資訊寫進 `package.json`，方便團隊合作與部署。
+
+缺點：
+* 每個專案都要安裝一次。
+
+### `npx`
+npx 是一個 Node.js 附帶的工具 (從 npm 5.2.0 開始就內建)，它的用途是：
+> **直接執行 Node.js 套件 (npm 套件) 中的指令**，而不需要先安裝到全域或專案中。
+
+舉個例子：
+* 假設你想用 `nodemon` 來啟動專案，但你不想全域安裝它，你可以直接使用：
+  ```bash
+  npx nodemon app.js
+  ```
+  這樣 npx 會自動：
+    * 在本機 (專案內) 找看看有沒有這個套件。
+    * 沒有的話，它會臨時下載並執行。
+    * 用完就丟掉，不會污染你的系統。
+
+---
+
 ## 建議學習方向
 
 * 非同步程式設計 (Callback → Promise → async/await)
@@ -240,3 +315,5 @@ console.log(data);
 * 單元測試 (Jest、Mocha)
 * 使用 `.env` 管理環境變數
 * 使用 `nodemon` 快速開發
+
+---

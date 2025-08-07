@@ -180,7 +180,10 @@ console.log(name.length); // 5
 ---
 
 ### JSON 物件
-
+JavaScript Object Notation
+* 簡便的 Javascript 物件表示法，現在更是一種被多數程式語言廣泛接受的資料格式。
+* 無法註解
+* 字串只能用 "
 ```json
 {
   "name": "Alice",

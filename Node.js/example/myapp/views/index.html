@@ -11,20 +11,22 @@
 </head>
 
 <body>
-    <!-- 導覽列 -->
-    <nav>
-        <!-- 左邊 LOGO / ICON -->
-        <div class="logo">
-            <img src="/A.png" alt="MyLyrics"> MyLyrics
-        </div>
+    <header>
+        <!-- 導覽列 -->
+        <nav>
+            <!-- 左邊 LOGO / ICON -->
+            <div class="logo">
+                <img src="/A.png" alt="MyLyrics"> MyLyrics
+            </div>
 
-        <!-- 右邊導覽連結 -->
-        <div class="menu">
-            <a href="/">首頁</a>
-            <a href="/about">關於</a>
-            <a href="/contact">聯絡我們</a>
-        </div>
-    </nav>
+            <!-- 右邊導覽連結 -->
+            <div class="menu">
+                <a href="/">首頁</a>
+                <a href="/about">關於</a>
+                <a href="/contact">聯絡我們</a>
+            </div>
+        </nav>
+    </header>
 
     <main>
         <h1 class="title">歡迎來到歌詞網站</h1>
@@ -33,10 +35,27 @@
 
             <!-- 歌單列表 -->
             <div id="song-list" class="grid">
+                <a href="/add" class="card transition">
+                    <div class="card-add">
+                        + 新增歌曲
+                    </div>
+                </a>
                 <!-- JavaScript 動態插入歌曲卡片 -->
             </div>
+
         </div>
     </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 MyLyrics. 版權所有.</div>
+            <div>
+                <a href="/">首頁</a> |
+                <a href="/about">關於我們</a> |
+                <a href="/contact">聯絡我們</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         fetch('/api/songs')
@@ -48,7 +67,7 @@
                     card.href = `/lyrics?id=${song.id}`;
                     card.className = "card transition";
                     card.innerHTML = `
-            <img src="/${song.image}" alt="${song.title}" class="w-24 h-24 object-cover rounded">
+            <img src="${song.image}" alt="${song.title}" class="w-24 h-24 object-cover rounded">
             <div class="card-content">
               <h2 class="text-gray-900 text-2xl font-semibold">${song.title}</h2>
               <p class="artist text-base text-gray-500">${song.artist}</p>

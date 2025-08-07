@@ -11,20 +11,28 @@
 </head>
 
 <body class="bg-gray-100 text-gray-900 font-sans">
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="/A.png" alt="MyLyrics"> MyLyrics
+            </div>
 
-    <!-- 返回 -->
-    <!-- <div class="fixed top-4 left-4"> -->
-    <nav>
-        <div class="logo">
-            <a href="/" class="text-white font-bold hover:underline">← 回首頁</a>
+            <div class="menu">
+                <a href="/">首頁</a>
+                <a href="/about">關於</a>
+                <a href="/contact">聯絡我們</a>
+            </div>
+        </nav>
+        <div class="p-4">
+            <a href="/" class="text-white font-bold hover:underline">&lt; 回首頁</a>
         </div>
-    </nav>
-    <!-- </div> -->
+    </header>
+
     <main>
-        <div class="max-w-3xl mx-auto p-6 pt-20">
+        <div class="max-w-3xl mx-auto p-6 pt-12">
             <div class="text-center">
-                <h1 id="song-title" class="text-3xl font-bold mb-2"></h1>
-                <h2 id="song-artist" class="text-lg text-gray-400 mb-4"></h2>
+                <h1 id="song-title" class="text-3xl font-bold text-gray-100 mb-2"></h1>
+                <h2 id="song-singer" class="text-lg text-gray-400 mb-4"></h2>
                 <img id="song-image" src="" alt="cover" class="w-64 mx-auto rounded shadow mb-6">
             </div>
 
@@ -39,6 +47,17 @@
         </div>
     </main>
 
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 MyLyrics. 版權所有.</div>
+            <div>
+                <a href="/">首頁</a> |
+                <a href="/about">關於我們</a> |
+                <a href="/contact">聯絡我們</a>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // 取得 URL 中的 id
         const params = new URLSearchParams(window.location.search);
@@ -51,8 +70,8 @@
             })
             .then(song => {
                 document.getElementById('song-title').textContent = song.title;
-                document.getElementById('song-artist').textContent = song.artist;
-                document.getElementById('song-image').src = '/' + song.image;
+                document.getElementById('song-singer').textContent = `演唱：${song.artist}`;
+                document.getElementById('song-image').src = song.image;
                 document.getElementById('song-image').alt = song.title;
                 document.getElementById('song-lyrics').textContent = song.lyrics;
             })
