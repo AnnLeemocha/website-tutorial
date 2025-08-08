@@ -3,46 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>歌詞頁面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLyrics | 歌詞頁面</title>
     <link rel="shortcut icon" href="/A.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/lyrics.css" />
 </head>
 
-<body class="bg-gray-100 text-gray-900 font-sans">
+<body>
     <header>
         <nav>
             <div class="logo">
-                <img src="/A.png" alt="MyLyrics"> MyLyrics
+                <a href="/">
+                    <img src="/A.png" alt="MyLyrics"> MyLyrics
+                </a>
             </div>
-
             <div class="menu">
-                <a href="/">首頁</a>
+                <a href="/manage">歌單管理</a>
                 <a href="/about">關於</a>
-                <a href="/contact">聯絡我們</a>
             </div>
         </nav>
-        <div class="p-4">
-            <a href="/" class="text-white font-bold hover:underline">&lt; 回首頁</a>
+        <div class="backhome" class="p-4">
+            <a href="/">&lt; 回首頁</a>
         </div>
     </header>
 
-    <main>
-        <div class="max-w-3xl mx-auto p-6 pt-12">
-            <div class="text-center">
-                <h1 id="song-title" class="text-3xl font-bold text-gray-100 mb-2"></h1>
-                <h2 id="song-singer" class="text-lg text-gray-400 mb-4"></h2>
-                <img id="song-image" src="" alt="cover" class="w-64 mx-auto rounded shadow mb-6">
+    <main class="container">
+        <div>
+            <div class="header">
+                <h1 id="title"></h1>
+                <h2 id="artist"></h2>
+                <img id="image" src="" alt="cover" class="image">
             </div>
 
             <!-- <div class="bg-white p-6 rounded shadow">
                 <h3 class="text-xl font-semibold mb-4">歌詞</h3>
                 <pre id="song-lyrics" class="whitespace-pre-wrap text-gray-800">載入中...</pre>
             </div> -->
-            <div class="bg-gray-100 p-6 rounded shadow">
-                <h3 class="text-xl font-semibold mb-4">歌詞</h3>
-                <div id="song-lyrics" class="text-gray-800">載入中...</pre>
+            <div class="lyrics-box">
+                <h3 class="lyrics-title">歌詞</h3>
+                <div id="lyrics" class="lyrics-text">載入中...</div>
             </div>
         </div>
     </main>
@@ -52,8 +54,7 @@
             <div>&copy; 2025 MyLyrics. 版權所有.</div>
             <div>
                 <a href="/">首頁</a> |
-                <a href="/about">關於我們</a> |
-                <a href="/contact">聯絡我們</a>
+                <a href="/about">關於我們</a>
             </div>
         </div>
     </footer>
@@ -69,17 +70,16 @@
                 return res.json();
             })
             .then(song => {
-                document.getElementById('song-title').textContent = song.title;
-                document.getElementById('song-singer').textContent = `演唱：${song.artist}`;
-                document.getElementById('song-image').src = song.image;
-                document.getElementById('song-image').alt = song.title;
-                document.getElementById('song-lyrics').textContent = song.lyrics;
+                document.getElementById('title').textContent = song.title;
+                document.getElementById('artist').textContent = `演唱：${song.artist}`;
+                document.getElementById('image').src = song.image;
+                document.getElementById('image').alt = song.title;
+                document.getElementById('lyrics').textContent = song.lyrics;
             })
             .catch(err => {
                 document.querySelector('pre').textContent = '載入失敗：' + err.message;
             });
     </script>
-</style>
 
 </body>
 

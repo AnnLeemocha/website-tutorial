@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLyrics | 歌單管理</title>
+    <link rel="shortcut icon" href="../img/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./manage.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="../img/A.png" alt="MyLyrics"> MyLyrics
+                </a>
+            </div>
+            <div class="menu">
+                <a href="./manage.html">歌單管理</a>
+                <a href="./about.html">關於</a>
+            </div>
+        </nav>
+        <div class="backhome" class="p-4">
+            <a href="./index.html">&lt; 回首頁</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>歌單管理</h1>
+        <div class="table-wrapper">
+            <table id="songTable">
+                <thead>
+                    <tr>
+                        <th>專輯封面</th>
+                        <th>歌名</th>
+                        <th>歌手</th>
+                        <th>動作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img class="cover" src="../img/uploads/KPOP DEMON HUNTERS.jpg" alt="專輯封面" /></td>
+                        <td>Golden</td>
+                        <td>HUNTR/X, EJAE, AUDREY NUNA, REI AMI, KPop Demon Hunters Cast</td>
+                        <td>
+                            <div class="actions">
+                                <a href="./edit.html" class="edit-button">編輯</a>
+                                <button class="delete-button">刪除</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 MyLyrics. 版權所有.</div>
+            <div>
+                <a href="./index.html">首頁</a> |
+                <a href="./about.html">關於我們</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

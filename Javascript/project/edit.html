@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLyrics | 編輯歌詞</title>
+    <link rel="shortcut icon" href="../img/A.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./add.css" />
+
+    <script src="./edit.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="../img/A.png" alt="MyLyrics"> MyLyrics
+                </a>
+            </div>
+            <div class="menu">
+                <a href="./manage.html">歌單管理</a>
+                <a href="./about.html">關於</a>
+            </div>
+        </nav>
+        <div class="backhome" class="p-4">
+            <a href="./index.html">&lt; 回首頁</a>
+        </div>
+    </header>
+
+    <main class="container modify">
+        <h1 class="title">新增歌詞</h1>
+        <form id="editSongForm">
+            <label>歌名：
+                <input id="title" type="text" name="title" required>
+            </label>
+
+            <label>歌手：
+                <input id="artist" type="text" name="artist" required>
+            </label>
+
+            <label>專輯圖片：
+                <!-- <div style="display: flex; align-items: center; gap: 8px;">
+                    <img id="image" style="height: 6rem; width: 6rem;" src="" alt="專輯圖片">
+                </div> -->
+                <input type="file" name="image" accept="image/*" />
+            </label>
+
+            <label>歌詞內容：
+                <textarea id="lyrics" name="lyrics" rows="10" required></textarea>
+            </label>
+
+            <button type="submit">提交歌詞</button>
+        </form>
+
+        <p id="message" style="color: red; margin-top: 10px;"></p>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 MyLyrics. 版權所有.</div>
+            <div>
+                <a href="./index.html">首頁</a> |
+                <a href="./about.html">關於我們</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

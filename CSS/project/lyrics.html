@@ -2,25 +2,43 @@
 <html lang="zh-Hant">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>歌曲歌詞網站</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLyrics | 歌詞頁面</title>
     <link rel="shortcut icon" href="../img/A.png" type="image/x-icon">
-    <link rel="stylesheet" href="lyrics.css" />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./lyrics.css" />
 </head>
 
 <body>
-    <div class="container">
-        <div class="header text-center">
-            <h1 class="title">《Golden》</h1>
-            <h2 class="singer">演唱：HUNTR/X, EJAE, AUDREY NUNA, REI AMI, KPop Demon Hunters Cast</h2>
-            <img src="https://i.kfs.io/album/global/281602486,0v2/fit/500x500.jpg" alt="專輯封面" class="image" />
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="../img/A.png" alt="MyLyrics"> MyLyrics
+                </a>
+            </div>
+            <div class="menu">
+                <a href="./manage.html">歌單管理</a>
+                <a href="./about.html">關於</a>
+            </div>
+        </nav>
+        <div class="backhome" class="p-4">
+            <a href="./index.html">&lt; 回首頁</a>
         </div>
+    </header>
 
-        <div class="lyrics-box">
-            <h3 class="lyrics-title">歌詞</h3>
-            <pre class="lyrics-text">
-I was a ghost, I was alone, hah
+    <main class="container">
+        <div>
+            <div class="header">
+                <h1 id="title"></h1>
+                <h2 id="artist"></h2>
+                <img id="image" src="../img/uploads/KPOP DEMON HUNTERS.jpg" alt="專輯封面" class="image">
+            </div>
+
+            <div class="lyrics-box">
+                <h3 class="lyrics-title">歌詞</h3>
+                <div id="lyrics" class="lyrics-text">I was a ghost, I was alone, hah
 어두워진, hah, 압길속에 (Ah)
 Given the throne, I didn't know how to believe
 I was the queen that I'm meant to be
@@ -67,10 +85,20 @@ We're gonna be, gonna be
 Born to be, born to be glowin'
 밝게 빛나는 우린
 You know that it's our time, no fears, no lies
-That's who we're born to be
-      </pre>
+That's who we're born to be</div>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 MyLyrics. 版權所有.</div>
+            <div>
+                <a href="./index.html">首頁</a> |
+                <a href="./about.html">關於我們</a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

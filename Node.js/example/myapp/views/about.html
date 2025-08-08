@@ -3,31 +3,37 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyLyrics | 關於我們</title>
     <link rel="shortcut icon" href="/A.png" type="image/x-icon">
     <link rel="stylesheet" href="/style.css" />
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <img src="/A.png" alt="MyLyrics"> MyLyrics
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="/A.png" alt="MyLyrics"> MyLyrics
+                </a>
+            </div>
+            <div class="menu">
+                <a href="/manage">歌單管理</a>
+                <a href="/about">關於</a>
+            </div>
+        </nav>
+        <div class="backhome" class="p-4">
+            <a href="/">&lt; 回首頁</a>
         </div>
-
-        <div class="menu">
-            <a href="/">首頁</a>
-            <a href="/about">關於</a>
-            <a href="/contact">聯絡我們</a>
-        </div>
-    </nav>
+    </header>
 
     <main>
         <h1 class="title">關於我們</h1>
 
-        <section style="justify-self: center; padding: 0 4rem;">
+        <section class="about">
             <p><strong>MyLyrics</strong> 是一個專門用來收藏與分享歌詞的網站，讓你可以輕鬆找到喜愛歌曲的文字內容，並保存屬於自己的音樂回憶。</p>
 
-            <div style="justify-self: center; padding-top: 1rem;">
+            <div class="message-box">
                 <div>
                     <h2>我們提供的功能：</h2>
                     <ul>
@@ -63,8 +69,7 @@
             <div>&copy; 2025 MyLyrics. 版權所有.</div>
             <div>
                 <a href="/">首頁</a> |
-                <a href="/about">關於我們</a> |
-                <a href="/contact">聯絡我們</a>
+                <a href="/about">關於我們</a>
             </div>
         </div>
     </footer>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLyrics | 編輯歌詞</title>
+    <link rel="shortcut icon" href="/A.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="/A.png" alt="MyLyrics"> MyLyrics
+                </a>
+            </div>
+            <div class="menu">
+                <a href="/manage">歌單管理</a>
+                <a href="/about">關於</a>
+            </div>
+        </nav>
+        <div class="backhome" class="p-4">
+            <a href="/">&lt; 回首頁</a>
+        </div>
+    </header>
+
+    <main class="container modify">
+        <h1 class="title">新增歌詞</h1>
+        <form id="editSongForm">
+            <label>歌名：
+                <input id="title" type="text" name="title" required>
+            </label>
+
+            <label>歌手：
+                <input id="artist" type="text" name="artist" required>
+            </label>
+
+            <label>專輯圖片：
+                <!-- <div style="display: flex; align-items: center; gap: 8px;">
+                    <img id="image" style="height: 6rem; width: 6rem;" src="" alt="專輯圖片">
+                </div> -->
+                <input type="file" name="image" accept="image/*" />
+            </label>
+
+            <label>歌詞內容：
+                <textarea id="lyrics" name="lyrics" rows="10" required></textarea>
+            </label>
+
+            <button type="submit">提交歌詞</button>
+        </form>
+
+        <p id="message" style="color: red; margin-top: 10px;"></p>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 MyLyrics. 版權所有.</div>
+            <div>
+                <a href="/">首頁</a> |
+                <a href="/about">關於我們</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const songId = urlParams.get('id');
+
+        const form = document.getElementById('editSongForm');
+
+
+        fetch(`/api/songs/${songId}`)
+            .then(res => {
+                if (!res.ok) throw new Error('找不到歌曲');
+                return res.json();
+            })
+            .then(song => {
+                console.log(song);
+
+                document.getElementById('title').value = song.title;
+                document.getElementById('artist').value = song.artist;
+                // document.getElementById('image').src = song.image;
+                // document.getElementById('image').alt = song.title;
+                document.getElementById('lyrics').value = song.lyrics;
+            })
+            .catch(err => {
+                alert('找不到這首歌');
+                window.location.href = '/manage';
+            });
+
+        // 送出更新
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const updatedData = {
+                title: form.title.value.trim(),
+                artist: form.artist.value.trim(),
+                lyrics: form.lyrics.value.replace(/\r\n/g, '\n')
+            };
+
+            fetch(`/api/songs/${songId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedData)
+            })
+                .then(res => {
+                    if (res.ok) {
+                        alert('更新成功！');
+                        window.location.href = '/manage';
+                    } else {
+                        alert('更新失敗');
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert('更新時發生錯誤');
+                });
+        });
+    </script>
+</body>
+
+</html>

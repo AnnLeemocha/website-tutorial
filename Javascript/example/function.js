@@ -94,33 +94,32 @@ function tryAlert() {
     }
 }
 
+// 確認視窗
+function tryConfirm() {
+    console.log("--- confirm() ---");
+    try {
+        console.log(`confirm("Are you sure?") ➜ ${confirm("Are you sure?")}`);
+    } catch (error) {
+        console.error(error);    
+    }
+}
 
-// try {
-//     console.log(`alert("Hello"); ➜ ${alert("Hello")}`);
-// } catch (error) {
-//     console.error(error);    
-// }
-
-// // 確認視窗
-// console.log("--- confirm() ---");
-// try {
-//     console.log(`confirm("Are you sure?") ➜ ${confirm("Are you sure?")}`);
-// } catch (error) {
-//     console.error(error);    
-// }
-
-// // 輸入視窗
-// console.log("--- prompt() ---");
-// try {
-//     console.log(`let input = prompt("Enter a number","");`);
-//     let input = prompt("Enter a number",""); // 輸入視窗
-//     console.log(`input = ${input}`);
-// } catch (error) {
-//     console.error(error);    
-// }
+// 輸入視窗
+function tryPrompt() {
+    console.log("--- prompt() ---");
+    try {
+        console.log(`let input = prompt("Enter a number","");`);
+        let input = prompt("Enter a number",""); // 輸入視窗
+        console.log(`input = ${input}`);
+    } catch (error) {
+        console.error(error);    
+    }
+}
 
 // 判斷是否為瀏覽器
 const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
 if (isBrowser) {
     tryAlert();
+    tryConfirm();
+    tryPrompt();
 }

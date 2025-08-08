@@ -42,6 +42,31 @@ console.log("=== navigator 物件 ===");
 console.log(`navigator (= window.navigator) ➜`); 
 console.log(navigator);
 
+// history 物件
+console.log("");
+console.log("=== history 物件 ===");
+console.log(`history (= window.history) ➜`); 
+console.log(history);
+
+// console 物件
+console.log("");
+console.log("=== console 物件 ===");
+console.log(`console (= window.console) ➜`); 
+console.log(console);
+
+// localStorage 物件
+console.log("");
+console.log("=== localStorage 物件 ===");
+console.log(`localStorage (= window.localStorage) ➜`); 
+console.log(localStorage);
+console.log(`localStorage.setItem("myKey", "myValue");`);
+localStorage.setItem("myKey", "myValue");
+console.log(`localStorage.getItem("myKey") ➜`); 
+console.log(localStorage.getItem("myKey"));
+console.log(`localStorage.removeItem("myKey");`);
+localStorage.removeItem("myKey");
+
+
 // 程式操作畫面的步驟
 console.log("");
 console.log("=== 程式操作畫面的步驟 ===");

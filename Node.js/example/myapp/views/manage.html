@@ -1,141 +1,113 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>歌單管理 - MyLyrics</title>
-  <link rel="stylesheet" href="/style.css" />
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1em;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.75em;
-      text-align: left;
-    }
-    img.cover {
-      width: 80px;
-      height: auto;
-    }
-
-    td div.actions {
-      text-align: center;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5px;
-    }
-
-  button {
-    padding: 6px 12px;
-    margin-right: 5px;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-
-  button:hover {
-    opacity: 0.9;
-  }
-
-  button:nth-child(2) {
-    background-color: #dc3545; /* 紅色刪除 */
-  }
-  </style>
+    <meta charset="UTF-8" />
+    <title>MyLyrics | 歌單管理</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="shortcut icon" href="/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css" />
 </head>
+
 <body>
 
-  <nav>
-    <div class="logo">🎵 MyLyrics</div>
-    <div class="menu">
-      <a href="/index.html">首頁</a>
-      <a href="/about">關於</a>
-      <a href="/contact">聯絡我們</a>
-      <a href="/add">新增歌詞</a>
-      <a href="/manage.html">歌單管理</a>
-    </div>
-  </nav>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="/A.png" alt="MyLyrics"> MyLyrics
+                </a>
+            </div>
+            <div class="menu">
+                <a href="/manage">歌單管理</a>
+                <a href="/about">關於</a>
+            </div>
+        </nav>
+        <div class="backhome" class="p-4">
+            <a href="/">&lt; 回首頁</a>
+        </div>
+    </header>
 
-  <main class="container">
-    <h1>歌單管理</h1>
-    <table id="songTable">
-      <thead>
-        <tr>
-          <th>專輯封面</th>
-          <th>歌名</th>
-          <th>歌手</th>
-          <th>動作</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- 資料將透過 JS 動態插入 -->
-      </tbody>
-    </table>
-  </main>
+    <main class="container">
+        <h1>歌單管理</h1>
+        <table id="songTable">
+            <thead>
+                <tr>
+                    <th>專輯封面</th>
+                    <th>歌名</th>
+                    <th>歌手</th>
+                    <th>動作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 資料將透過 JS 動態插入 -->
+            </tbody>
+        </table>
+    </main>
 
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 MyLyrics. 版權所有.</p>
-    </div>
-  </footer>
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 MyLyrics. 版權所有.</div>
+            <div>
+                <a href="/">首頁</a> |
+                <a href="/about">關於我們</a>
+            </div>
+        </div>
+    </footer>
 
-  <script>
-    fetch('/api/songs')
-      .then(res => res.json())
-      .then(data => {
-        const tbody = document.querySelector('#songTable tbody');
-        data.forEach(song => {
-          const tr = document.createElement('tr');
+    <script>
+        fetch('/api/songs')
+            .then(res => res.json())
+            .then(data => {
+                const tbody = document.querySelector('#songTable tbody');
+                data.forEach(song => {
+                    const tr = document.createElement('tr');
 
-          tr.innerHTML = `
+                    tr.innerHTML = `
             <td><img class="cover" src="${song.image}" alt="${song.title} 封面" /></td>
             <td>${song.title}</td>
             <td>${song.artist}</td>
             <td>
                 <div class="actions">
-                <button onclick="editSong('${song.id}')">編輯</button>
-                <button onclick="deleteSong('${song.id}')">刪除</button>
+                    <button class="edit-button" onclick="editSong('${song.id}')">編輯</button>
+                    <button class="delete-button" onclick="deleteSong('${song.id}')">刪除</button>
                 </div>
             </td>
           `;
 
-          tbody.appendChild(tr);
-        });
-      })
-      .catch(err => {
-        console.error('讀取歌單失敗:', err);
-      });
+                    tbody.appendChild(tr);
+                });
+            })
+            .catch(err => {
+                console.error('讀取歌單失敗:', err);
+            });
 
         function editSong(id) {
             // 轉跳到編輯頁面
             window.location.href = `/edit?id=${id}`;
         }
 
+        function deleteSong(id) {
+            if (!confirm('你確定要刪除這首歌嗎？')) return;
 
-    function deleteSong(id) {
-        if (!confirm('你確定要刪除這首歌嗎？')) return;
-
-        fetch(`/api/songs/${id}`, {
-        method: 'DELETE'
-        })
-        .then(res => {
-        if (res.ok) {
-            alert('刪除成功');
-            location.reload(); // 重新整理頁面
-        } else {
-            alert('刪除失敗');
+            fetch(`/api/songs/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => {
+                    if (res.ok) {
+                        alert('刪除成功');
+                        location.reload(); // 重新整理頁面
+                    } else {
+                        alert('刪除失敗');
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert('刪除過程發生錯誤');
+                });
         }
-        })
-        .catch(err => {
-        console.error(err);
-        alert('刪除過程發生錯誤');
-        });
-    }
-  </script>
+    </script>
 
 </body>
+
 </html>

@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歌曲歌詞網站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyLyrics | 歌詞頁面</title>
     <link rel="shortcut icon" href="../img/A.png" type="image/x-icon">
 </head>
 
@@ -12,86 +12,88 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="../img/A.png" alt="MyLyrics"> MyLyrics
+                <a href="./index.html">
+                    <img src="../img/A.png" alt="MyLyrics"> MyLyrics
+                </a>
             </div>
-    
             <div class="menu">
-                <a href="/index.html">首頁</a>
-                <a href="/about.html">關於</a>
-                <a href="/contact.html">聯絡我們</a>
+                <a href="./manage.html">歌單管理</a>
+                <a href="./about.html">關於</a>
             </div>
         </nav>
+        <div class="backhome" class="p-4">
+            <a href="./index.html">&lt; 回首頁</a>
+        </div>
     </header>
-    <main>
+
+    <main class="container">
         <div>
-            <div>
-                <h1>《Golden》</h1>
-                <h2>演唱：HUNTR/X, EJAE, AUDREY NUNA, REI AMI, KPop Demon Hunters Cast</h2>
-                <img src="https://i.kfs.io/album/global/281602486,0v2/fit/500x500.jpg" alt="專輯封面">
+            <div class="header">
+                <h1 id="title"></h1>
+                <h2 id="artist"></h2>
+                <img id="image" src="../img/uploads/KPOP DEMON HUNTERS.jpg" alt="專輯封面" class="image">
             </div>
 
-            <div>
-                <h3>歌詞</h3>
-                <pre>
-    I was a ghost, I was alone, hah
-    어두워진, hah, 압길속에 (Ah)
-    Given the throne, I didn't know how to believe
-    I was the queen that I'm meant to be
-    I lived two lives, tried to play both sides
-    But I couldn't find my own place
-    Called a problem child 'cause I got too wild
-    But now that's how I'm getting paid, 끝없이 on stage
+            <div class="lyrics-box">
+                <h3 class="lyrics-title">歌詞</h3>
+                <div id="lyrics" class="lyrics-text">I was a ghost, I was alone, hah
+어두워진, hah, 압길속에 (Ah)
+Given the throne, I didn't know how to believe
+I was the queen that I'm meant to be
+I lived two lives, tried to play both sides
+But I couldn't find my own place
+Called a problem child 'cause I got too wild
+But now that's how I'm getting paid, 끝없이 on stage
 
-    I'm done hidin', now I'm shinin' like I'm born to be
-    We dreamin' hard, we came so far, now I believe
+I'm done hidin', now I'm shinin' like I'm born to be
+We dreamin' hard, we came so far, now I believe
 
-    We're goin' up, up, up, it's our moment
-    You know together we're glowing
-    Gonna be, gonna be golden
-    Oh, up, up, up with our voices
-    영원히 깨질 수 없는
-    Gonna be, gonna be golden
+We're goin' up, up, up, it's our moment
+You know together we're glowing
+Gonna be, gonna be golden
+Oh, up, up, up with our voices
+영원히 깨질 수 없는
+Gonna be, gonna be golden
 
-    Oh, I'm done hidin' now I'm shinin' like I'm born to be
-    Oh, our time, no fear, no lies
-    That's who we're born to be
+Oh, I'm done hidin' now I'm shinin' like I'm born to be
+Oh, our time, no fear, no lies
+That's who we're born to be
 
-    Waited so long to break these walls down
-    To wake up and feel like me
-    Put these patterns all in the past now
-    And finally live like the girl they all see
+Waited so long to break these walls down
+To wake up and feel like me
+Put these patterns all in the past now
+And finally live like the girl they all see
 
-    No more hiding, I'll be shining like I'm born to be
-    'Cause we are hunters, voices strong, and I know I believe
+No more hiding, I'll be shining like I'm born to be
+'Cause we are hunters, voices strong, and I know I believe
 
-    We're goin' up, up, up, it's our moment
-    You know together we're glowing
-    Gonna be, gonna be golden
-    Oh, up, up, up, with our voices
-    영원히 깨질 수 없는
-    Gonna be, gonna be golden
+We're goin' up, up, up, it's our moment
+You know together we're glowing
+Gonna be, gonna be golden
+Oh, up, up, up, with our voices
+영원히 깨질 수 없는
+Gonna be, gonna be golden
 
-    Oh, I'm done hidin', now I'm shining like I'm born to be
-    Oh, our time, no fears, no lies
-    That's who we're born to be
+Oh, I'm done hidin', now I'm shining like I'm born to be
+Oh, our time, no fears, no lies
+That's who we're born to be
 
-    You know we're gonna be, gonna be golden
-    We're gonna be, gonna be
-    Born to be, born to be glowin'
-    밝게 빛나는 우린
-    You know that it's our time, no fears, no lies
-    That's who we're born to be
-    </pre>
+You know we're gonna be, gonna be golden
+We're gonna be, gonna be
+Born to be, born to be glowin'
+밝게 빛나는 우린
+You know that it's our time, no fears, no lies
+That's who we're born to be</div>
             </div>
         </div>
     </main>
+
     <footer>
-        <div>
+        <div class="footer-content">
             <div>&copy; 2025 MyLyrics. 版權所有.</div>
             <div>
-                <a href="/index.html">首頁</a>
-                <a href="/about.html">關於</a>
-                <a href="/contact.html">聯絡我們</a>
+                <a href="./index.html">首頁</a> |
+                <a href="./about.html">關於我們</a>
             </div>
         </div>
     </footer>

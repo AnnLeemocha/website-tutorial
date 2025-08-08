@@ -67,6 +67,11 @@
     │   ├── log()
     │   ├── error()
     │   └── ...
+    ├── localStorage
+    ├── sesstionStorage
+    ├── alert()
+    ├── confirm()
+    ├── prompt()
     └── ...
     ```
     ![HTML DOM hierarchy](../img/html_dom_hierarchy.png)
