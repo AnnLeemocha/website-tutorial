@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title>This is my website</title>
+
+    <script src="05.js" defer></script>
+    <!-- ES Module -->
+    <script type="module" src="05-2.js" defer></script>
+</head>
+
+<body>
+    <h1>Please open DevTool ✅</h1>
+    <section>
+        <button onclick="countAdd()">click me</button>
+    </section>
+    <section>
+        <button onclick="loop()">開始計時 (間隔一秒計數一次)</button>
+        <button onclick="stopLoop()">取消計時</button>
+    </section>
+    <section>
+        <button onclick="delay(3)">延遲 3 秒執行</button>
+        <button onclick="stopDelay()">取消延遲計畫</button>
+    </section>
+    <section>
+        <button onclick="run1()">非同步處理 (Promise)</button>
+        <button onclick="run2()">非同步處理 (async/await)</button>
+        <button onclick="runAPI()">從 GitHub API 取得 DIFY 資訊</button>
+    </section>
+</body>
+
+</html>

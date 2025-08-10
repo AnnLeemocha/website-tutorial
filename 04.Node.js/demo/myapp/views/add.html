@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLyrics | 新增歌詞</title>
+    <link rel="shortcut icon" href="/A.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="/A.png" alt="MyLyrics"> MyLyrics
+                </a>
+            </div>
+            <div class="menu">
+                <a href="/manage">歌單管理</a>
+                <a href="/about">關於</a>
+            </div>
+        </nav>
+        <div class="backhome" class="p-4">
+            <a href="/">&lt; 回首頁</a>
+        </div>
+    </header>
+
+    <main class="container modify">
+        <h1 class="title">新增歌詞</h1>
+        <form id="addSongForm">
+            <label>歌名：
+                <input type="text" name="title" required>
+            </label>
+
+            <label>歌手：
+                <input type="text" name="artist" required>
+            </label>
+
+            <label>專輯圖片：
+                <input type="file" name="image" accept="image/*" required />
+            </label>
+
+            <label>歌詞內容：
+                <textarea name="lyrics" rows="10" required></textarea>
+            </label>
+
+            <button type="submit">提交歌詞</button>
+        </form>
+
+        <p id="message" style="color: red; margin-top: 10px;"></p>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>&copy; 2025 MyLyrics. 版權所有.</div>
+            <div>
+                <a href="/">首頁</a> |
+                <a href="/about">關於我們</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('addSongForm');
+        const message = document.getElementById('message');
+
+
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            // 簡單前端檢查 (示範)
+            if (!formData.get('title').trim() || !formData.get('artist').trim() || !formData.get('lyrics').trim() || !formData.get('image').name) {
+                message.style.color = 'red';
+                message.textContent = '請填寫所有欄位並選擇圖片';
+                return;
+            }
+
+            // 發送 API
+            console.log("發送新增 API (假)");
+            
+            // try {
+            //     const res = await fetch('/api/songs', {
+            //         method: 'POST',
+            //         body: formData // 直接送 FormData，fetch 會自動設定 multipart/form-data
+            //     });
+
+            //     if (res.ok) {
+            //         message.style.color = 'green';
+            //         message.textContent = '新增成功！3秒後回首頁...';
+            //         form.reset();
+            //         setTimeout(() => {
+            //             window.location.href = '/';
+            //         }, 3000);
+            //     } else {
+            //         const text = await res.text();
+            //         message.style.color = 'red';
+            //         message.textContent = `新增失敗：${text}`;
+            //     }
+            // } catch (error) {
+            //     message.style.color = 'red';
+            //     message.textContent = '伺服器錯誤，請稍後再試';
+            // }
+        });
+
+    </script>
+</body>
+
+</html>

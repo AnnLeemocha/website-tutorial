@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>排版練習 - Display</title>
+
+        <style>
+            .block {
+                display: block;
+                background: lightblue;
+                margin-bottom: 10px;
+            }
+
+            .inline {
+                display: inline;
+                background: lightgreen;
+            }
+
+
+            .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                height: 200px;
+                background: #eee;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .item {
+                width: 200px;
+                height: 100px;
+                background: lightcoral;
+            }
+
+
+            .container2 {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+                gap: 10px;
+            }
+
+            .item2 {
+                background: lightseagreen;
+                height: 100px;
+            }
+
+            .outer {
+                position: relative;
+                width: 300px;
+                height: 200px;
+                background-color: lightblue;
+            }
+
+            .inner {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 100px;
+                height: 50px;
+                background-color: coral;
+            }
+
+            .fixed-box {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: yellow;
+                padding: 10px;
+            }
+
+            .sticky-header {
+                position: sticky;
+                top: 0;
+                background-color: lightgreen;
+                padding: 10px;
+                z-index: 10;
+            }
+
+            * {
+                font-size: 1rem;
+            }
+
+
+            /* 中等螢幕： */
+            @media (max-width: 768px) {
+                * {
+                    font-size: 1.25rem;
+                }
+            }
+
+            /* 小螢幕： */
+            @media (max-width: 480px) {
+                * {
+                    font-size: 1.5rem;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="sticky-header">黏在頂部的選單</div>
+
+        <div class="block">我是 block</div>
+        <span class="inline">我是 inline</span>
+        <span class="inline">我也是 inline</span>
+
+        <hr>
+
+        <div class="container">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <hr>
+
+        <div class="container2">
+            <div class="item2">A</div>
+            <div class="item2">B</div>
+            <div class="item2">C</div>
+        </div>
+
+
+        <div class="outer">
+            這是父容器
+            <div class="inner">絕對定位</div>
+        </div>
+
+        <div class="fixed-box">固定在右下角</div>
+    </body>
+</html>

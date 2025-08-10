@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>排版練習 - Display</title>
+
+        <style>
+
+            .my-transition {
+                width: 100px;
+                height: 100px;
+                background: skyblue;
+                transition: background-color 0.5s ease;
+            }
+
+            .my-transition:hover {
+                background-color: pink;
+            }
+
+            @keyframes move {
+                0%   { transform: translateX(0); }
+                50%  { transform: translateX(200px); }
+                100% { transform: translateX(0); }
+            }
+
+            .my-animation {
+                width: 100px;
+                height: 100px;
+                background: rgb(150, 135, 235);
+                animation: move 4s ease-in-out infinite;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="my-transition">我會變色</div>
+        <div class="my-animation">我會移動</div>
+
+    </body>
+</html>

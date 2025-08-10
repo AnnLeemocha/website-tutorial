@@ -1,1 +1,0 @@
-console.log("Hello! 我是外部腳本 (External Script) [body]");

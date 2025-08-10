@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>This is my website</title>
+
+        <script src="07.js" defer></script>
+        <style>
+            button {
+                padding: 0.75rem 0.5rem;
+                background-color: lightblue;
+                border-radius: 6px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Please open DevTool ✅</h1>
+        <div id="document" class="doc-class">
+            <span>階層結構</span>
+            <span>樹狀結構</span>
+        </div>
+
+        <section>
+            <button onclick="modifyColor('red')">改變顏色 (red)</button>
+            <button onclick="modifyColor('black')">改變顏色 (black)</button>
+            <button onclick="addNode()">新增標籤 (#document)</button>
+            <button onclick="addNodeToBody()">新增標籤 (body)</button>
+            <button onclick="removeNode()">移除標籤 (#document)</button>
+        </section>
+
+        <section>
+            <button onclick="addHash()">同頁面跳轉到 #123</button>
+            <button onclick="gotoGoogle()">前往 Google</button>
+        </section>
+        <section>
+            <button onclick="lastPage()">上一頁</button>
+            <button onclick="nextPage()">下一頁</button>
+        </section>
+        <section>
+            <span id="text">複製的內容</span>
+            <button onclick="copyText()">複製</button>
+        </section>
+        <section>
+            <button onclick="setLocalStorage('key1', 0)">添加 localStorage (key1)</button>
+            <button onclick="setLocalStorage('key2', 'val')">添加 localStorage (key2)</button>
+            <button onclick="getLocalStorage('key1')">取得 localStorage (key1)</button>
+            <button onclick="removeLocalStorage('key1')">刪除 localStorage (key1)</button>
+            <button onclick="cleanAllLocalStorage()">清除全部 localStorage</button>
+        </section>
+        <section>
+            <button onclick="tryAlert()">查看內建函式 ➜ 警告視窗</button>
+            <button onclick="tryConfirm()">查看內建函式 ➜ 確認視窗</button>
+            <button onclick="tryPrompt()">查看內建函式 ➜ 輸入視窗</button>
+        </section>
+
+        <h1 id="123" style="margin-top: 100vh;">123456789</h1>
+
+    </body>
+</html>

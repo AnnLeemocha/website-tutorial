@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>This is my website</title>
+
+        <script src="08.js" defer></script>
+        <style>
+            button {
+                padding: 0.75rem 0.5rem;
+                background-color: lightblue;
+                border-radius: 6px;
+            }
+            
+            #box {
+                width: 50px;
+                height: 50px;
+                background-color: cornflowerblue;
+                position: absolute;
+                top: 400px;
+                left: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Please open DevTool ✅</h1>
+        
+        <section>
+            <button onclick="alert('事件發生');">點擊此區塊觸發事件</button>
+            <div 
+                onmouseover="this.style.backgroundColor='pink';" 
+                onmouseout="this.style.backgroundColor='lightblue';"
+                style="margin: 10px;padding: 20px; background-color: lightblue;"
+            >
+                滑鼠移進此區塊時，文字變紅色
+            </div>
+        </section>
+
+        <section id="id-added">
+            <h3>進階事件 (JS)</h3>
+            <button id="event">點擊此區塊觸發事件</button>
+            <button id="info">取得事件相關的資訊</button>
+            <div id="box">待操作的方塊</div>
+            <button onclick="addEvent()">新增事件</button>
+            <button onclick="removeEvent()">移除事件</button>
+        </section>
+    </body>
+</html>

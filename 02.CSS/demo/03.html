@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>This is my website</title>
+
+        <style>
+
+            #my-id,
+            .my-class {
+                color: blue;
+            }
+
+            .container strong {
+                color: blue;
+            }
+
+            .parent > p {
+                color: green;
+            }
+
+            h2 ~ p {
+                color: red;
+            }
+
+            h3 + p {
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div id="my-id">Hello! This is my website.</div>
+        <div class="my-class">Hello! This is my website.</div>
+
+
+        <div class="container">
+            <section>
+                <p>This is a <strong>bold</strong> text inside a paragraph.</p>
+            </section>
+        </div>
+
+        <div class="parent">
+            <p>Paragraph 1</p>
+            <div>
+                <p>Paragraph 2</p>
+            </div>
+        </div>
+
+        <section>
+            <h2>Title</h2>
+            <p>First paragraph</p>
+            <p>Second paragraph</p>
+        </section>
+
+        <section>
+            <h3>Subtitle</h3>
+            <p>Only this paragraph will be styled</p>
+            <p>This one will not be affected</p>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>This is my website</title>
+
+        <style>
+            * {
+                color: darkred;
+            }
+
+            div {
+                font-weight: bold;
+            }
+
+            .my-class {
+                text-decoration: underline;
+            }
+
+            .my-class2 {
+                background-color: lightblue;
+            }
+
+            #my-id {
+                font-size: 1.5rem;
+                /* 後壓前 */
+                background-color: pink;
+            }
+
+            [data-try="12345"] {
+                color: red;
+            }
+
+            #my-id2:hover {
+                background-color: lightgray;
+            }
+
+            #my-id2::before {
+                content: 'Prefix - ';
+            }
+
+        </style>
+    </head>
+    <body>
+
+        Hello! This is my website.
+        <div>Hello! This is my website.</div>
+        <div id="my-id" class="my-class my-class2">Hello! This is my website.</div>
+        <div id="my-id2" class="my-class">Hello! This is my website.</div>
+        <div data-try="12345">Hello! This is my website.</div>
+
+    </body>
+</html>
