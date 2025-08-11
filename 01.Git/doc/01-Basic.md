@@ -55,9 +55,41 @@ git config --global user.email "you@example.com"
 git remote add origin https://github.com/用戶名/倉庫名.git
 ```
 
-### 3. 第一次推送 (設定主分支)
+### 3. 第一次推送  (設定主分支)
+
+注意：
+* 使用 `git init` 預設的主分支為 `master`
+
+* 使用 GitHub 建立的的主分支為 `main`
+
+* 想要推送到 GitHub 的主分支，需先將主分支名稱更改為 `main`
+
+* 私有 GitHub repo，無論是 `push` 還是 `clone`，都需要通過認證。
+
+  * 方式一：[使用 SSH (推薦)](./02-SSH.md)
+
+    1. 建立 SSH 金鑰 (id_ed25519 或 id_rsa) 
+
+    2. 把 公鑰 加到 GitHub 帳號
+
+    3. 使用 SSH URL (例如 git@github.com:username/repo.git) 
+
+  * 方式二：使用 HTTPS (需 token)
+    * GitHub 已停用帳密登入
+    * 缺點：比較麻煩，Token 遺失要重新建立。
+
+    1. 如果你用的是：  
+        ```bash
+        https://github.com/username/private-repo.git
+        ```
+        當你 git push 時，GitHub 不再接受帳密，**會要求你用 Personal Access Token (PAT) 代替密碼**。
+      
+    2. 第一次 push 時 Git 會要求你輸入：
+        * 使用者名稱：你的 GitHub 使用者名稱
+        * 密碼：GitHub 個人 access token (而不是你的 GitHub 密碼) 
 
 ```bash
+# git branch -M main
 git push -u origin main
 ```
 
