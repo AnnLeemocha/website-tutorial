@@ -23,6 +23,11 @@ git config --global user.name "你的名字"
 git config --global user.email "you@example.com"
 ```
 
+查看設定：
+```bash
+git config --list
+```
+
 ---
 
 ## 建立 Git 倉庫
@@ -30,13 +35,67 @@ git config --global user.email "you@example.com"
 ### 初始化本地倉庫
 
 1. 建立或進入專案資料夾：
+    ```bash
+    mkdir myproject
+    cd myproject
+    ```
 2. 初始化版本控制：
 
     ```bash
     git init
     ```
 
-    > 此指令會在資料夾中建立 `.git` 資料夾，開始進行版本控制。
+    > 此指令會在資料夾中建立 `.git` 資料夾，開始進行版本控制 (追蹤專案)。
+  
+### 工作區與暫存區
+* **工作區 (Working Directory)**：你看到和編輯的檔案。
+
+* **暫存區 (Staging Area)**：用來暫時放置你準備提交的檔案。
+
+* **版本庫 (Repository)**：正式存放歷史版本的地方。
+
+### 常用 Git 指令
+
+* **查看檔案狀態**
+  ```bash
+  git status
+  ```
+  
+* **將檔案加入暫存區**
+  ```bash
+  git add file.txt
+  git add .            # 加入所有變動檔案
+  ```
+  
+* **提交 (commit)**
+  ```bash
+  git commit -m "說明此次修改"
+  ```
+  
+* **查看歷史提交紀錄**
+  ```bash
+  git log
+  ```
+
+* **建立與切換分支**
+  ```bash
+  git branch new-feature     # 建立新分支
+  git checkout new-feature   # 切換到新分支
+
+  # 或合併一指令： (建立並切換到新分支)
+  git checkout -b new-feature
+  ```
+
+* **合併分支**
+  ```bash
+  git checkout main          # 回到 main 分支
+  git merge new-feature      # 合併 new-feature 進 main
+  ```
+
+* **查看遠端倉庫**
+  ```bash
+  git remote -v
+  ```
 
 ---
 
@@ -49,13 +108,22 @@ git config --global user.email "you@example.com"
 3. 輸入倉庫名稱與設定 (建議不要勾選初始化)
 4. 點選「Create repository」
 
+---
+
 ### 2. 連接本地倉庫到遠端
 
 ```bash
 git remote add origin https://github.com/用戶名/倉庫名.git
 ```
 
+---
+
 ### 3. 第一次推送  (設定主分支)
+
+```bash
+# git branch -M main
+git push -u origin main
+```
 
 注意：
 * 使用 `git init` 預設的主分支為 `master`
@@ -66,32 +134,41 @@ git remote add origin https://github.com/用戶名/倉庫名.git
 
 * 私有 GitHub repo，無論是 `push` 還是 `clone`，都需要通過認證。
 
-  * 方式一：[使用 SSH (推薦)](./02-SSH.md)
+#### 連線認證 
+方式一：使用 SSH (推薦，參考 [02-SSH.md](02-SSH.md))
 
-    1. 建立 SSH 金鑰 (id_ed25519 或 id_rsa) 
+1. 建立 SSH 金鑰 (id_ed25519 或 id_rsa) 
 
-    2. 把 公鑰 加到 GitHub 帳號
+2. 把 公鑰 加到 GitHub 帳號
 
-    3. 使用 SSH URL (例如 git@github.com:username/repo.git) 
+3. 使用 SSH URL (例如 git@github.com:username/repo.git) 
 
-  * 方式二：使用 HTTPS (需 token)
-    * GitHub 已停用帳密登入
-    * 缺點：比較麻煩，Token 遺失要重新建立。
+方式二：使用 HTTPS (需 token)
+> 當你 `git push` 時，GitHub 不再接受帳密，**會要求你用 Personal Access Token (PAT) 代替密碼**。
 
-    1. 如果你用的是：  
-        ```bash
-        https://github.com/username/private-repo.git
-        ```
-        當你 git push 時，GitHub 不再接受帳密，**會要求你用 Personal Access Token (PAT) 代替密碼**。
-      
-    2. 第一次 push 時 Git 會要求你輸入：
-        * 使用者名稱：你的 GitHub 使用者名稱
-        * 密碼：GitHub 個人 access token (而不是你的 GitHub 密碼) 
+> 缺點：比較麻煩，Token 遺失要重新建立。
 
-```bash
-# git branch -M main
-git push -u origin main
-```
+1. 登入你的 GitHub 帳號
+
+2. 點右上角的你的頭像，選擇 Settings
+
+3. 左側選單選擇 Developer settings
+
+4. 接著點 Personal access tokens (擇一)
+    * 選 Fine-grained (新版)
+    * 選 Tokens (classic)
+
+5. 點擊 Generate new token
+    * 給你的 token 命名、設定有效期限，並勾選你需要的權限 (Scopes)，例如 repo 權限、workflow 權限等
+    * 按 Generate token
+
+6. 產生後會顯示一次 token，請立即複製保存，因為關閉後就看不到了
+  
+7. 第一次 `git push` 時 Git 會要求你輸入：
+    * 使用者名稱：你的 GitHub 使用者名稱
+    * 密碼：GitHub 個人 access token (而不是你的 GitHub 密碼) 
+
+---
 
 ### 4. 從遠端拉取更新
 
