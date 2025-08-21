@@ -26,3 +26,4 @@
 * [MDN | JavaScript Learn](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting)
 * [MDN | JavaScript References](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [彭彭的課程教學 | JavaScript 網頁前端工程入門](https://training.pada-x.com/javascript-start)
+* [W3Schools | JavaScript Tutorial](https://www.w3schools.com/js/default.asp)

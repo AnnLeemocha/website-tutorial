@@ -4,6 +4,7 @@
 參考：
 * [彭彭的教學課程 | JavaScript 程式簡介](https://docs.google.com/presentation/d/1qMZrWHPZbJsxqJuISYqoXj3FqAk4nfngpV88YirReqk/edit?usp=sharing)
 * [彭彭的教學課程 | 變數與運算子](https://docs.google.com/presentation/d/1x_Qa87sDiIMpwu8Sx8VSGSrO-hQKb5heEfLnn8BaY2Y/edit?usp=sharing)
+* [W3Schools | JavaScript Tutorial](https://www.w3schools.com/js/default.asp)
 
 範例：
 * [01.html](../demo/01.html)

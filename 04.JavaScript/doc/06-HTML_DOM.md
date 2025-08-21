@@ -1,6 +1,7 @@
 # JavaScript 教學 - HTML DOM
 
 參考：
+* [W3Schools | JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)
 
 範例：
 * [07.html](../demo/07.html)

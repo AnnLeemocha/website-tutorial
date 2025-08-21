@@ -2,6 +2,13 @@
 
 參考：
 * [彭彭的教學課程 | 流程控制](https://docs.google.com/presentation/d/17Atsg0gRhYaSaAMT4ztHxdeoGIui_zNj1vTMsMiWrRw/edit?usp=sharing)
+* [W3Schools | JavaScript Functions](https://www.w3schools.com/js/js_functions.asp)
+* [W3Schools | JavaScript Callbacks](https://www.w3schools.com/js/js_callback.asp)
+* [W3Schools | Asynchronous JavaScript](https://www.w3schools.com/js/js_asynchronous.asp)
+* [W3Schools | JavaScript Promises](https://www.w3schools.com/js/js_promise.asp)
+* [W3Schools | JavaScript Async](https://www.w3schools.com/js/js_async.asp)
+* [W3Schools | JavaScript Errors](https://www.w3schools.com/js/js_errors.asp)
+* [W3Schools | JavaScript Modules](https://www.w3schools.com/js/js_modules.asp)
 
 範例：
 * [05.html](../demo/05.html)

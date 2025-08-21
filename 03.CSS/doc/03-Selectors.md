@@ -2,6 +2,7 @@
 
 參考：
 * [彭彭的教學課程 | CSS 基本教學](https://docs.google.com/presentation/d/1dY4PyAzQA-3_pXnGzFHRY1TOSqtcFtR33T6AjtEt7wU/edit?usp=sharing)
+* [MDN | CSS Selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors)
 
 範例：
 * [02.html](../demo/02.html)

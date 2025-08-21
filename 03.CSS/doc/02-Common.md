@@ -4,6 +4,7 @@
 參考：
 * [彭彭的教學課程 | CSS 基本教學](https://docs.google.com/presentation/d/1dY4PyAzQA-3_pXnGzFHRY1TOSqtcFtR33T6AjtEt7wU/edit?usp=sharing)
 * [MDN | CSS styling basics](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics)
+* [W3Schools | CSS Tutorial](https://www.w3schools.com/css/default.asp)
 
 範例：
 * [01.html](../demo/01.html)

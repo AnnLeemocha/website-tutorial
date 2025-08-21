@@ -2,6 +2,7 @@
 
 參考：
 * [web.dev | Box Model](https://web.dev/learn/css/box-model)
+* [MDN | Box Model](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model)
 * [MDN | Debugging CSS](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Debugging_CSS)
 
 範例：

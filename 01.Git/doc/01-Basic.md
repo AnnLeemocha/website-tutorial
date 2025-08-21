@@ -1,5 +1,10 @@
 # Git 基礎教學筆記
 
+參考：
+* [W3Schools | Git Tutorial](https://www.w3schools.com/git/default.asp)
+
+---
+
 ## 什麼是 Git？
 
 Git 是一套 **分散式版本控制系統**，用來追蹤檔案變更與協作開發，最常用於管理程式碼。具備以下特性：

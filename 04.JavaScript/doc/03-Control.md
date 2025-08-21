@@ -2,6 +2,11 @@
 
 參考：
 * [彭彭的教學課程 | 流程控制](https://docs.google.com/presentation/d/17Atsg0gRhYaSaAMT4ztHxdeoGIui_zNj1vTMsMiWrRw/edit?usp=sharing)
+* [W3Schools | JavaScript if, else, and else if](https://www.w3schools.com/js/js_if_else.asp)
+* [W3Schools | JavaScript Switch Statement](https://www.w3schools.com/js/js_switch.asp)
+* [W3Schools | JavaScript For Loop](https://www.w3schools.com/js/js_loops.asp)
+* [W3Schools | JavaScript Break](https://www.w3schools.com/js/js_break.asp)
+* [W3Schools | JavaScript Continue](https://www.w3schools.com/js/js_continue.asp)
 
 範例：
 * [04.html](../demo/04.html)

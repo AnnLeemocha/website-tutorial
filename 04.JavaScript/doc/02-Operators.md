@@ -2,18 +2,19 @@
 
 
 參考：
-* [彭彭的教學課程 | JavaScript 程式簡介](https://docs.google.com/presentation/d/1qMZrWHPZbJsxqJuISYqoXj3FqAk4nfngpV88YirReqk/edit?usp=sharing)
-* [彭彭的教學課程 | 變數與運算子](https://docs.google.com/presentation/d/1x_Qa87sDiIMpwu8Sx8VSGSrO-hQKb5heEfLnn8BaY2Y/edit?usp=sharing)
+* [web.dev | Comparison operators](https://web.dev/learn/javascript/comparison)
+* [MDN | Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators)
+* [MDN | Expressions and operators (Reference)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#expressions_and_operators)
+* [W3Schools | JavaScript Operators](https://www.w3schools.com/js/js_operators.asp)
+* [W3Schools | JavaScript Arithmetic](https://www.w3schools.com/js/js_arithmetic.asp)
+* [W3Schools | JavaScript Assignment](https://www.w3schools.com/js/js_assignment.asp)
+* [W3Schools | JavaScript Comparison and Logical Operators](https://www.w3schools.com/js/js_comparisons.asp)
 
 範例：
 * [03.html](../demo/03.html)
 * [03.js](../demo/03.js)
 
-## 常見運算子
-更多請參考：
-* [web.dev | Comparison operators](https://web.dev/learn/javascript/comparison)
-* [MDN | Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators)
-* [MDN | Expressions and operators (Reference)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#expressions_and_operators)
+---
 
 ### 算術運算：+, -, *, /, %
 ```js

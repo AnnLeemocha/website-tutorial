@@ -5,8 +5,9 @@
 * [官方快捷鍵文件](https://github.com/Microsoft/vscode-tips-and-tricks)
 * [官方文件](https://code.visualstudio.com/docs/getstarted/getting-started)
 * [Microsoft | 開始使用 Visual Studio Code 搭配適用於 Linux 的 Windows 子系統](https://learn.microsoft.com/zh-tw/windows/wsl/tutorials/wsl-vscode)
-* [任柏澔 HackMD 筆記 | 洛奇的邪惡駔之手札 | [學習之路] VSCode 的技巧大補帖](https://summer10920.github.io/2020/10-23/article-vscode/)
-* [vscode-基礎操作](https://hackmd.io/@howhow/vscode_operation)
+* [洛奇的邪惡駔之手札 | [學習之路] VSCode 的技巧大補帖](https://summer10920.github.io/2020/10-23/article-vscode/)
+* [任柏澔 HackMD 筆記 | vscode-基礎操作](https://hackmd.io/@howhow/vscode_operation)
+* [Microsoft Learn | 使用 Visual Studio Code 開始進行網頁程式開發](https://learn.microsoft.com/zh-tw/training/modules/get-started-with-web-development/)
 
 ## 什麼是 Visual Studio Code
 

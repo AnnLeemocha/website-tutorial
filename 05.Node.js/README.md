@@ -1,4 +1,4 @@
-# JavaScript 教學
+# Node.js 教學
 
 歡迎使用這份教學文件，以下是各章節連結，請依序閱讀 👇
 
@@ -16,3 +16,4 @@
 ---
 
 ## 🔗 補充資源
+* [W3Schools | Node.js Tutorial](https://www.w3schools.com/nodejs/default.asp)

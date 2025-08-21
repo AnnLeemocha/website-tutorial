@@ -1,6 +1,7 @@
 # HTML 教學 - 常用標籤
 參考：
 * [彭彭的教學課程 | HTML 基本教學](https://docs.google.com/presentation/d/15CepcqdWgCw783suEgiiUC7z7LLJr_-ZERtBDkm1cto/edit?usp=sharing)
+* [W3Schools | HTML Element Reference](https://www.w3schools.com/tags/default.asp)
 
 範例：
 * [02.html](../demo/02.html)
@@ -31,13 +32,11 @@
 | `<tr>`	                  | 表格列 (table row)，每列資料的容器。 |
 | `<th>`	                  | 表格標題儲存格 (table heading)，內容預設為粗體並置中。    |
 | `<td>`	                  | 表格資料儲存格 (table data)，放置實際資料內容。           |
-| `<section>` | 表示網頁中的一個主題區段，適合用來劃分頁面內容，例如「最新消息」、「服務項目」。 |
-| `<article>` | 表示一篇獨立內容，常用於部落格文章、新聞報導、卡片區塊等，內容可獨立存在。    |
-| `<header>` | 表示頁面或區塊的頁首，通常包含 logo、標題、導覽列等。     |
-| `<footer>` | 表示頁面或區塊的頁尾，通常包含版權資訊、聯絡方式、頁尾連結等。   |
-| `<nav>`    | 導覽列區塊，用來放置主要導航連結 (例如主選單)。          |
-| `<aside>`    | 表示與主要內容間接相關的區塊，像是側邊欄、廣告、補充資訊或註解。          |
-| `<main>`   | 表示頁面的主要內容區域，應為每頁唯一，排除頁首、側欄、頁尾等區域。 |
+| `<svg>`                  | 用於定義 Web 的可縮放向量圖形 |
+
+* SVG 學習資源：
+    * [MDN | SVG](https://developer.mozilla.org/en-US/docs/Glossary/SVG)
+    * [W3Schools Tutorial | SVG](https://www.w3schools.com/graphics/svg_intro.asp)
 
 ## 驗證
 [The W3C Markup Validation Service](https://validator.w3.org/#validate_by_upload)

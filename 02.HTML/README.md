@@ -24,3 +24,4 @@
 * [MDN | HTML Learn](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content)
 * [MDN | HTML References](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [彭彭的課程教學 | JavaScript 網頁前端工程入門](https://training.pada-x.com/javascript-start) - HTML 基本教學
+* [W3Schools | HTML Tutorial](https://www.w3schools.com/html/default.asp)

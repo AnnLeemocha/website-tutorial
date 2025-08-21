@@ -1,4 +1,4 @@
-# HTML 教學
+# VS Code 教學
 
 歡迎使用這份教學文件，以下是各章節連結，請依序閱讀 👇
 
@@ -16,5 +16,4 @@
 
 ## 🔗 補充資源
 
-* [Git 官方網站](https://git-scm.com/)
-* [Pro Git 中文版](https://git-scm.com/book/zh-tw/v2)
+* [VS Code 官方網站](https://code.visualstudio.com/docs/getstarted/getting-started)

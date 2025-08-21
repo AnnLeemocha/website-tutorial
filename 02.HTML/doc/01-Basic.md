@@ -1,6 +1,7 @@
 # HTML 教學 - 文件結構
 參考：
 * [web.dev | Document structure](https://web.dev/learn/html/document-structure)
+* [W3Schools | HTML Tutorial](https://www.w3schools.com/html/default.asp)
 
 範例：
 * [01.html](../demo/01.html)

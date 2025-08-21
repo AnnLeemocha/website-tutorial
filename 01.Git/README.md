@@ -1,4 +1,4 @@
-# HTML 教學
+# Git 教學
 
 歡迎使用這份教學文件，以下是各章節連結，請依序閱讀 👇
 
@@ -19,3 +19,4 @@
 
 * [Git 官方網站](https://git-scm.com/)
 * [Pro Git 中文版](https://git-scm.com/book/zh-tw/v2)
+* [W3Schools | Git Tutorial](https://www.w3schools.com/git/default.asp)

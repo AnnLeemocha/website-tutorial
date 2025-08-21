@@ -1,6 +1,8 @@
 # JavaScript 教學 - 物件基礎
 
 參考：
+* [W3Schools | JSON](https://www.w3schools.com/js/js_json.asp)
+* [MDN | Reference - Standard built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
 範例：
 * [06.html](../demo/06.html)
@@ -266,24 +268,27 @@ console.log(name.toUpperCase()); // HELLO
 
 ---
 
-### JSON 物件
-JavaScript Object Notation
-* 簡便的 Javascript 物件表示法，現在更是一種被多數程式語言廣泛接受的資料格式。
-* 無法註解
-* 字串只能用 `"`
-```json
-{
-  "name": "Alice",
-  "age": 30
-}
-```
+## JSON 物件
+* JSON (JavaScript Object Notation)：
+  * 簡便的 Javascript 物件表示法，現在更是一種被多數程式語言廣泛接受的資料格式。
+  * 純文字格式
+  * 用於傳送、接收和儲存資料
+  * 鍵/值對由欄位名稱 (用雙引號引起來)，後面跟著冒號，後跟值組成 (不可用 `'xxx'` 或 ``` `xxx` ```)
+  * 無法註解
+  ```json
+  {
+    // 鍵 : 值
+    "name": "Alice",
+    "age": 30
+  }
+  ```
 
-JSON 轉換成 js 物件：
+* JSON 轉換成 js 物件：
 
-```js
-let json = '{"name":"Alice","age":30}';
-let obj = JSON.parse(json);           // 轉為物件
-let str = JSON.stringify(obj);        // 轉回字串
-```
+  ```js
+  let json = '{"name":"Alice","age":30}';
+  let obj = JSON.parse(json);           // 轉為物件
+  let str = JSON.stringify(obj);        // 轉回字串
+  ```
 
 ---
