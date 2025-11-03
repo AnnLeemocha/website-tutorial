@@ -277,6 +277,12 @@ node_modules/
 .DS_Store
 ```
 
+參考文件：
+
+* [GitHub 官方文件參考](https://docs.github.com/en/get-started/git-basics/ignoring-files)
+* [GitHub 官方 .gitignore 範本](https://github.com/github/gitignore)
+* [Toptal 依輸入的項目建立必要的 .gitignore 文件網站](https://www.toptal.com/developers/gitignore)
+
 ---
 
 ## 回到過去：版本還原技巧
