@@ -1,320 +1,328 @@
-# Node.js 教學 - 總覽
-
-參考：
-* [W3Schools | Node.js Tutorial](https://www.w3schools.com/nodejs/default.asp)
-
-範例：
-* [first/](../example/first/app.js)
-* [sample/](../example/sample/index.js)
-* [myapp/](../example/myapp/app.js)
+# Node.js 基礎與架構
 
 ---
 
-## 什麼是 Node.js？
+## 1. 什麼是 Node.js
 
-Node.js 是一個基於 Chrome V8 引擎的 JavaScript 執行環境，可以讓你在伺服器端執行 JavaScript 程式碼。主要特色包括：
+**Node.js** 是一個開源、跨平台，可以在「瀏覽器外」執行 **JavaScript 的執行環境**（Runtime Environment）。
 
-* 非同步、事件驅動的架構
-* 適合開發高效能 I/O 密集型應用 (如 API、聊天伺服器)
+它建立在 **V8 引擎**（Chrome 的 JavaScript 引擎）之上，並提供許多與系統互動的功能，例如：
+
+* 檔案系統操作（File System）
+* 網路伺服器建立（HTTP Server）
+* 命令列輸入輸出（CLI Input/Output）
+* 模組管理與套件機制
+
+> 用一句話總結：**Node.js 讓 JavaScript 能在伺服器端執行（實現後端開發）**。
 
 ---
 
-## 安裝 Node.js
+## 2. Node.js 架構概念
+
+Node.js 採用 **事件驅動（Event-Driven）** 與 **非同步 I/O（Asynchronous I/O）** 架構，這不同於 PHP、Python 等傳統同步阻塞模型。
+
+這意味著它在執行大量任務時，**不會因為等待某一個操作（例如讀檔）而卡住整個程式**。
+
+基本運作流程：
+
+1. JavaScript 程式由 V8 引擎執行。
+2. 當遇到 I/O 操作（如讀檔），Node.js 將任務交給背景執行緒。
+3. 當任務完成，會透過事件迴圈（Event Loop）呼叫對應的回呼函式（callback）。
+
+這使得 Node.js 特別適合：
+
+* 網路伺服器
+* 即時應用（如聊天室、即時資料）
+* CLI 工具
+
+---
+
+## 3. Node.js vs 瀏覽器環境
+
+雖然兩者都能執行 JavaScript，但用途與內建 API 差異很大：
+
+
+| 項目      | 瀏覽器                          | Node.js                         |
+| ------- | ------------------------------ | --------------------------------- |
+| 執行位置    | 使用者端 (Client)                  | 伺服器端 (Server)                     |
+| 主要用途    | 操作 DOM、顯示網頁、與使用者互動             | 處理資料、API、檔案、後端邏輯                  |
+| 全域物件    | `window`、`document`、`location` | `global`、`process`、`__dirname`    |
+| 可使用 API | DOM、fetch、localStorage         | fs、path、http、os 等 Node 模組         |
+| 模組系統    | ES Modules (import/export)     | CommonJS (require/module.exports) |
+| 安全性     | 受瀏覽器沙盒限制                       | 擁有完整系統存取權限                        |
+
+簡單理解：
+
+* 瀏覽器 JS：負責「畫面與互動」
+* Node.js JS：負責「資料與邏輯」
+
+
+---
+
+## 4. 安裝與環境設定
 
 1. 前往 [Node.js 官方網站](https://nodejs.org/)
-2. 下載 LTS (長期支援)版本
-3. 安裝完成後，打開終端機輸入：
+2. 下載 **LTS（長期支援版）** 並安裝
+3. 安裝完成後，在命令列確認版本：
 
 ```bash
 node -v
 npm -v
 ```
 
+若能正確顯示版本號，即表示安裝成功。
+
+### NVM
+
+若需管理多版本 Node.js，可使用：
+
+* macOS / Linux: [nvm](https://github.com/nvm-sh/nvm)
+* Windows: [nvm-windows](https://github.com/coreybutler/nvm-windows)
+
 ---
 
-## 第一個 Node.js 程式
+## 5. Node CLI 操作
 
-建立一個 `app.js` 檔案，內容如下：
+Node.js 附帶一個命令列工具（CLI），可用於執行、除錯、查看版本等。
+
+### 常用指令
+
+| 指令                                                                           | 說明                  |
+| ---------------------------------------------------------------------------- | ------------------- |
+| `node -v`                                                                    | 查看 Node.js 版本       |
+| `node file.js`                                                               | 執行指定的 JavaScript 檔案 |
+| `node`                                                                       | 進入互動式模式（REPL）       |
+| `node --inspect file.js`                                                     | 啟用除錯模式              |
+| `set NODE_ENV=production`（Windows） / `export NODE_ENV=production`（Mac/Linux） | 設定環境變數              |
+
+官方 CLI 文件：[https://nodejs.org/api/cli.html](https://nodejs.org/api/cli.html)
+
+---
+
+## 6. 第一支程式：Hello World
+
+建立一個新檔案 `index.js`，內容如下：
 
 ```js
-console.log("Hello, Node.js!");
+// index.js
+console.log("Hello, Node!");
 ```
 
 執行：
 
 ```bash
-node app.js
+node index.js
+```
+
+輸出結果：
+
+```
+Hello, Node!
 ```
 
 ---
 
-## Node.js 模組系統
+## 7. 模組系統（Modules）
 
-Node.js 使用 CommonJS 模組系統。
+Node.js 支援兩種模組系統：
 
-### 匯出模組 (module.exports)
+| 模組系統   | 關鍵字                         | package.json         | 副檔名         | 特性                                                 |
+| ---------- | ------------------------------ | -------------------- | -------------- | ---------------------------------------------------- |
+| CommonJS   | `require()` / `module.exports` | `"type": "commonjs"` | `.js` / `.cjs` | Node.js 傳統支援 (預設)，適合現有大部分 Node.js 套件 |
+| ES Modules | `import` / `export`            | `"type": "module"`   | `.js` / `.mjs` | 現代 JavaScript 標準模組系統，與前端一致 (Node 14+ 才正式穩定支援)           |
+
+### 區分使用模組
+
+1. 透過 `package.json` 指定：`"type": "commonjs"` (預設)
+
+    * `.js` 檔案 → **視為 CJS**
+    * `.mjs` 檔案 → **視為 ESM**
+
+2. 透過 `package.json` 指定：`"type": "module"`
+
+    * `.js` 檔案 → **視為 ESM**
+    * `.cjs` 檔案 → **視為 CJS**
+
+3. 使用副檔名區分
+
+    * `.mjs` → 一律當 **ES Module**
+    * `.cjs` → 一律當 **CommonJS**
+    * `.js` → 根據 `package.json` 中的 `"type"` 判斷
+
+### CommonJS 範例：
 
 ```js
-// math.js
+// greet.js
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+module.exports = greet;
+```
+
+```js
+// index.js
+const greet = require("./greet");
+
+console.log(greet("Node"));
+```
+
+執行結果：
+
+```
+Hello, Node!
+```
+
+### ES Modules 範例：
+
+```js
+// greet.mjs
+// export function greet(name) {
+//   return `Hello, ${name}!`;
+// }
+module.exports = {
+    greet: (name) => {
+        console.log(`Hello, ${name}!`);
+    }
+};
+```
+
+```js
+// index.js
+// import { greet } from "./greet.js";
+const greet = require("./greet.js");
+
+console.log(greet("ESM"));
+```
+
+執行結果：
+
+```
+Hello, ESM!
+```
+
+### 混合使用範例
+
+可以在同一個專案中混用兩種模式，只要：
+
+* 不同檔案用不同副檔名 (`.mjs` / `.cjs`)
+* 或用動態匯入（例如從 CJS 內 `import()` ESM）
+
+範例：
+
+```js
+// test.js
+// CJS 檔案中載入 ESM 模組
+(async () => {
+  const module = await import('./greet.mjs');
+  module.run();
+})();
+```
+
+---
+
+## 8. 內建模組與自訂模組
+
+### 內建模組
+Node.js 內建許多模組，例如：
+
+| 模組名稱   | 用途     |
+| ------ | ------ |
+| `fs`   | 檔案系統操作 |
+| `path` | 路徑處理   |
+| `os`   | 系統資訊   |
+| `http` | 建立伺服器  |
+| `url`  | 解析網址   |
+
+範例：使用 `os` 模組取得系統資訊
+
+```js
+// system.js
+const os = require("os");
+
+console.log("系統平台:", os.platform());
+console.log("CPU 架構:", os.arch());
+console.log("可用記憶體:", os.freemem());
+```
+
+執行：
+
+```bash
+node system.js
+```
+
+範例：使用 `http` 模組建立簡易 HTTP Server
+
+```js
+// server.js
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
+  res.end("Hello from Node.js Server!");
+});
+
+server.listen(3000, () => {
+  console.log("伺服器運行中：http://localhost:3000");
+});
+```
+
+---
+
+### 自訂模組
+
+建立 `math.js`：
+
+```js
 function add(a, b) {
   return a + b;
 }
 module.exports = { add };
 ```
 
-### 匯入模組 (require)
+主程式 `index.js`：
 
 ```js
-// app.js
-const math = require('./math');
-console.log(math.add(2, 3)); // 5
+const { add } = require("./math");
+console.log(add(2, 3)); // 5
 ```
 
----
-
-## Node.js 專案
-
-### 初始化專案
-
-```bash
-npm init -y
-```
-
-執行後會產生一個 `package.json` 檔案，內容如下 (簡化版)：
-
-```json
-{
-  "name": "my-app",
-  "version": "1.0.0",
-  "description": "這是一個範例專案",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "author": "你自己",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^1.7.2"
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.4.1"
-  }
-}
-```
-
-`package.json` 是 Node.js 專案的核心設定檔，內容通常包含：
-
-| 欄位                | 用途說明                             |
-| ----------------- | -------------------------------- |
-| `name`            | 專案名稱 (只能小寫，不能有空格)                 |
-| `version`         | 版本號 (遵循 semver：主.次.修)             |
-| `description`     | 專案簡介                             |
-| `main`            | 進入點 (通常是 Node.js 專案才用)            |
-| `scripts`         | **定義 CLI 指令**，用 `npm run xxx` 執行 |
-| `author`          | 作者名稱                             |
-| `license`         | 授權類型 (MIT、ISC、UNLICENSED...)      |
-| `dependencies`    | **正式依賴** (部署時也需要)                 |
-| `devDependencies` | **開發依賴** (只在開發階段使用)               |
-
-#### `scripts`：
-* 用來跑指令
-* 執行 `npm run start` 基本上就是執行 `node index.js`
-
-#### `dependencies` 與 `devDependencies` 版本號與常見符號：
-* 版本號：`主版本.次版本.修補版本`
-  * 主版本：破壞性更新
-  * 次版本：新增功能但相容
-  * 修補版本：修 bug，完全相容
-* 常見符號：
-  | 符號  | 說明                               |
-  | --- | -------------------------------- |
-  | `^` | 允許自動安裝「**次版本 + 修補版本**」的更新 (不升主版本) |
-  | `~` | 允許自動安裝「**修補版本**」更新 (不升次版本)        |
-  | 無符號 | 鎖定精確版本，例如 `3.4.15`，不會升級          |
-  | `*` | 安裝任何版本 (**不建議**)                  |
-
-
----
-
-## 使用 npm 管理套件
-
-當你使用 `npm install` 安裝套件時，這些套件會被下載並放在 `node_modules` 資料夾中。這個資料夾包含所有你專案需要的函式庫與其依賴。
-
-### 舉例：安裝 axios
-
-```bash
-npm install axios
-```
-
-會產生：
-
-* `node_modules/`：所有套件實際安裝的位置
-  * 通常不會把它上傳到 GitHub，因為它可能很大。
-  * 可以建立 `.gitignore` 檔案：
-    ```bash
-    # .gitignore
-    node_modules/
-    ```
-* `package-lock.json`：鎖定依賴版本，確保部署一致性
-* `package.json` 中會更新：
-
-```json
-"dependencies": {
-  "axios": "^1.6.0"
-}
-```
-
-你可以這樣使用：
+## 9. 小練習：建立一個能互動的 Node 程式
 
 ```js
-// app.js
-const axios = require('axios');
+// hello.js
+const readline = require("readline");
 
-axios.get('https://api.github.com')
-  .then(response => console.log(response.data))
-  .catch(error => console.error(error));
-```
-
----
-
-### 常見操作指令 (搭配 `package.json`)
-| 操作                     | 指令                            |
-| ---------------------- | ----------------------------- |
-| 初始化一個新的 `package.json` | `npm init` 或 `npm init -y`    |
-| 安裝所有相依套件               | `npm install` 或 `npm i`       |
-| 新增套件 (正式依賴)             | `npm install vue`             |
-| 新增套件 (開發用)              | `npm install vite --save-dev` |
-| 移除套件                   | `npm uninstall vue`           |
-| 執行 script              | `npm run xxx`               |
-
-
----
-
-## 內建套件
-
-### 建立簡易 HTTP 伺服器
-
-```js
-// server.js
-const http = require('http');
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello World\n");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
 });
 
-server.listen(3000, () => {
-  console.log("伺服器啟動於 http://localhost:3000/");
+rl.question("請輸入你的名字：", (name) => {
+  console.log(`Hello, ${name}! 歡迎使用 Node.js！`);
+  rl.close();
 });
 ```
 
 執行：
 
 ```bash
-node server.js
+node hello.js
+```
+
+範例輸出：
+
+```
+請輸入你的名字：旻恩
+Hello, 旻恩! 歡迎使用 Node.js！
 ```
 
 ---
 
-### 讀寫檔案 (fs 模組)
+### 實作挑戰
 
-```js
-const fs = require('fs');
-
-// 寫入檔案
-fs.writeFileSync('hello.txt', 'Hello from Node.js');
-
-// 讀取檔案
-const data = fs.readFileSync('hello.txt', 'utf-8');
-console.log(data);
-```
-
----
-
-## 補充：
-
-### 全域安裝 (Global Install) 
-```bash
-npm install -g <套件名稱>
-```
-特徵：
-* 套件會被安裝到系統層級，整台電腦都可以用。
-
-使用時機：
-* 安裝開發工具或 CLI 工具，例如：
-    * 執行 CLI 工具：`npx nodemon app.js`
-    * 建立新專案：`npx create-react-app my-app`
-    * 執行測試工具：`npx jest`
-    * 執行套件中提供的 script，而不必安裝到全域。
-
-好處：
-* 安裝一次，多個專案可共用。
-
-缺點：
-* 不同專案可能出現版本衝突。
-* 不易追蹤套件版本 (因為不寫在 `package.json`)。
-
-安裝位置 (依作業系統而異)：
-* Windows: `C:\Users\<你>\AppData\Roaming\npm`
-* macOS/Linux: `/usr/local/lib/node_modules`
-
-
-### 專案內安裝 (Local Install)
-```bash
-npm install <套件名稱>
-```
-
-特徵：
-* 套件會被安裝到當前專案資料夾的 node_modules 中。
-
-使用時機：
-* 安裝專案需要的函式庫或開發時使用的工具。
-
-可區分為兩種角色：
-* 一般依賴 (dependencies)
-  ```bash
-  npm install axios
-  ```
-  > 用於專案執行時必需的套件 (會寫進 dependencies)
-
-* 開發依賴 (devDependencies)
-  ```bash
-  npm install --save-dev nodemon
-  ```
-  > 僅在開發階段需要的工具，如打包工具、測試工具 (會寫進 devDependencies)
-
-好處：
-* 各專案獨立，不怕版本衝突。
-* 套件資訊寫進 `package.json`，方便團隊合作與部署。
-
-缺點：
-* 每個專案都要安裝一次。
-
-### `npx`
-npx 是一個 Node.js 附帶的工具 (從 npm 5.2.0 開始就內建)，它的用途是：
-> **直接執行 Node.js 套件 (npm 套件) 中的指令**，而不需要先安裝到全域或專案中。
-
-舉個例子：
-* 假設你想用 `nodemon` 來啟動專案，但你不想全域安裝它，你可以直接使用：
-  ```bash
-  npx nodemon app.js
-  ```
-  這樣 npx 會自動：
-    * 在本機 (專案內) 找看看有沒有這個套件。
-    * 沒有的話，它會臨時下載並執行。
-    * 用完就丟掉，不會污染你的系統。
-
----
-
-## 建議學習方向
-
-* 非同步程式設計 (Callback → Promise → async/await)
-* 使用 Express 建立 API
-* 資料庫整合 (MongoDB、MySQL 等)
-* RESTful API 開發
-* 單元測試 (Jest、Mocha)
-* 使用 `.env` 管理環境變數
-* 使用 `nodemon` 快速開發
+1. 嘗試修改 `hello.js`，讓使用者可以輸入年齡，並顯示「你今年 X 歲」
+2. 使用 `os` 模組顯示電腦資訊（例如使用者名稱、主機名稱）
+3. 嘗試建立一個 `math.js` 檔案，匯出加減乘除四個函式，並在 `index.js` 引入使用
 
 ---
